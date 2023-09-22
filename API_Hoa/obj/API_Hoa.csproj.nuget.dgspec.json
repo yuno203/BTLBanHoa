@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gia Bao\\source\\repos\\BTLThayDong\\API_Hoa\\API_Hoa.csproj": {}
+    "C:\\Users\\Gia Bao\\Desktop\\BTLBanHoa\\API_Hoa\\API_Hoa.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gia Bao\\source\\repos\\BTLThayDong\\API_Hoa\\API_Hoa.csproj": {
+    "C:\\Users\\Gia Bao\\Desktop\\BTLBanHoa\\API_Hoa\\API_Hoa.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gia Bao\\source\\repos\\BTLThayDong\\API_Hoa\\API_Hoa.csproj",
+        "projectUniqueName": "C:\\Users\\Gia Bao\\Desktop\\BTLBanHoa\\API_Hoa\\API_Hoa.csproj",
         "projectName": "API_Hoa",
-        "projectPath": "C:\\Users\\Gia Bao\\source\\repos\\BTLThayDong\\API_Hoa\\API_Hoa.csproj",
+        "projectPath": "C:\\Users\\Gia Bao\\Desktop\\BTLBanHoa\\API_Hoa\\API_Hoa.csproj",
         "packagesPath": "C:\\Users\\Gia Bao\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gia Bao\\source\\repos\\BTLThayDong\\API_Hoa\\obj\\",
+        "outputPath": "C:\\Users\\Gia Bao\\Desktop\\BTLBanHoa\\API_Hoa\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,11 +32,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Gia Bao\\source\\repos\\BTLThayDong\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
-                "projectPath": "C:\\Users\\Gia Bao\\source\\repos\\BTLThayDong\\BusinessLogicLayer\\BusinessLogicLayer.csproj"
+              "C:\\Users\\Gia Bao\\Desktop\\BTLBanHoa\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
+                "projectPath": "C:\\Users\\Gia Bao\\Desktop\\BTLBanHoa\\BusinessLogicLayer\\BusinessLogicLayer.csproj"
               },
-              "C:\\Users\\Gia Bao\\source\\repos\\BTLThayDong\\DataModel\\DataModel.csproj": {
-                "projectPath": "C:\\Users\\Gia Bao\\source\\repos\\BTLThayDong\\DataModel\\DataModel.csproj"
+              "C:\\Users\\Gia Bao\\Desktop\\BTLBanHoa\\DataModel\\DataModel.csproj": {
+                "projectPath": "C:\\Users\\Gia Bao\\Desktop\\BTLBanHoa\\DataModel\\DataModel.csproj"
               }
             }
           }
@@ -83,14 +83,14 @@
         }
       }
     },
-    "C:\\Users\\Gia Bao\\source\\repos\\BTLThayDong\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
+    "C:\\Users\\Gia Bao\\Desktop\\BTLBanHoa\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gia Bao\\source\\repos\\BTLThayDong\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
+        "projectUniqueName": "C:\\Users\\Gia Bao\\Desktop\\BTLBanHoa\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
         "projectName": "BusinessLogicLayer",
-        "projectPath": "C:\\Users\\Gia Bao\\source\\repos\\BTLThayDong\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
+        "projectPath": "C:\\Users\\Gia Bao\\Desktop\\BTLBanHoa\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
         "packagesPath": "C:\\Users\\Gia Bao\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gia Bao\\source\\repos\\BTLThayDong\\BusinessLogicLayer\\obj\\",
+        "outputPath": "C:\\Users\\Gia Bao\\Desktop\\BTLBanHoa\\BusinessLogicLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -111,11 +111,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Gia Bao\\source\\repos\\BTLThayDong\\DataAccessLayer\\DataAccessLayer.csproj": {
-                "projectPath": "C:\\Users\\Gia Bao\\source\\repos\\BTLThayDong\\DataAccessLayer\\DataAccessLayer.csproj"
+              "C:\\Users\\Gia Bao\\Desktop\\BTLBanHoa\\DataAccessLayer\\DataAccessLayer.csproj": {
+                "projectPath": "C:\\Users\\Gia Bao\\Desktop\\BTLBanHoa\\DataAccessLayer\\DataAccessLayer.csproj"
               },
-              "C:\\Users\\Gia Bao\\source\\repos\\BTLThayDong\\DataModel\\DataModel.csproj": {
-                "projectPath": "C:\\Users\\Gia Bao\\source\\repos\\BTLThayDong\\DataModel\\DataModel.csproj"
+              "C:\\Users\\Gia Bao\\Desktop\\BTLBanHoa\\DataModel\\DataModel.csproj": {
+                "projectPath": "C:\\Users\\Gia Bao\\Desktop\\BTLBanHoa\\DataModel\\DataModel.csproj"
               }
             }
           }
@@ -149,14 +149,14 @@
         }
       }
     },
-    "C:\\Users\\Gia Bao\\source\\repos\\BTLThayDong\\DataAccessLayer\\DataAccessLayer.csproj": {
+    "C:\\Users\\Gia Bao\\Desktop\\BTLBanHoa\\DataAccessLayer\\DataAccessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gia Bao\\source\\repos\\BTLThayDong\\DataAccessLayer\\DataAccessLayer.csproj",
+        "projectUniqueName": "C:\\Users\\Gia Bao\\Desktop\\BTLBanHoa\\DataAccessLayer\\DataAccessLayer.csproj",
         "projectName": "DataAccessLayer",
-        "projectPath": "C:\\Users\\Gia Bao\\source\\repos\\BTLThayDong\\DataAccessLayer\\DataAccessLayer.csproj",
+        "projectPath": "C:\\Users\\Gia Bao\\Desktop\\BTLBanHoa\\DataAccessLayer\\DataAccessLayer.csproj",
         "packagesPath": "C:\\Users\\Gia Bao\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gia Bao\\source\\repos\\BTLThayDong\\DataAccessLayer\\obj\\",
+        "outputPath": "C:\\Users\\Gia Bao\\Desktop\\BTLBanHoa\\DataAccessLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -177,8 +177,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Gia Bao\\source\\repos\\BTLThayDong\\DataModel\\DataModel.csproj": {
-                "projectPath": "C:\\Users\\Gia Bao\\source\\repos\\BTLThayDong\\DataModel\\DataModel.csproj"
+              "C:\\Users\\Gia Bao\\Desktop\\BTLBanHoa\\DataModel\\DataModel.csproj": {
+                "projectPath": "C:\\Users\\Gia Bao\\Desktop\\BTLBanHoa\\DataModel\\DataModel.csproj"
               }
             }
           }
@@ -226,14 +226,14 @@
         }
       }
     },
-    "C:\\Users\\Gia Bao\\source\\repos\\BTLThayDong\\DataModel\\DataModel.csproj": {
+    "C:\\Users\\Gia Bao\\Desktop\\BTLBanHoa\\DataModel\\DataModel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gia Bao\\source\\repos\\BTLThayDong\\DataModel\\DataModel.csproj",
+        "projectUniqueName": "C:\\Users\\Gia Bao\\Desktop\\BTLBanHoa\\DataModel\\DataModel.csproj",
         "projectName": "DataModel",
-        "projectPath": "C:\\Users\\Gia Bao\\source\\repos\\BTLThayDong\\DataModel\\DataModel.csproj",
+        "projectPath": "C:\\Users\\Gia Bao\\Desktop\\BTLBanHoa\\DataModel\\DataModel.csproj",
         "packagesPath": "C:\\Users\\Gia Bao\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gia Bao\\source\\repos\\BTLThayDong\\DataModel\\obj\\",
+        "outputPath": "C:\\Users\\Gia Bao\\Desktop\\BTLBanHoa\\DataModel\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

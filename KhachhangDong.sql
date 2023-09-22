@@ -62,11 +62,11 @@ VALUES
     ('03','Lê Văn C', 'levanc@example.com', '789 Đường GHI, Quận OPQ');
 
 select*from KhachHang
-INSERT INTO DonDatHang (KhachHangID, NgayDat)
+INSERT INTO DonDatHang (DonDatHangID,KhachHangID, NgayDat)
 VALUES
-    (1, '2023-09-13'),
-    (2, '2023-09-14'),
-    (3, '2023-09-15');
+    ('1','1', '2023-09-13'),
+    ('2','2', '2023-09-14'),
+    ('3','2', '2023-09-15');
 
 INSERT INTO ChiTietDonDatHang (DonDatHangID, SanPhamHoaID, SoLuong)
 VALUES
@@ -124,5 +124,99 @@ Begin
 end
 select*from KhachHang
 
+--Tim kiem thong tin khach hang
+go
+create PROCEDURE [dbo].[sp_khach_search] (@page_index  INT, 
+                                       @page_size   INT,
+									   @ten_khach Nvarchar(50),
+									   @dia_chi Nvarchar(250)
+									   )
+AS
+    BEGIN
+        DECLARE @RecordCount BIGINT;
+        IF(@page_size <> 0)
+            BEGIN
+						SET NOCOUNT ON;
+                        SELECT(ROW_NUMBER() OVER(
+                              ORDER BY TenKhachHang ASC)) AS RowNumber, 
+                              k.KhachHangID,
+							  k.TenKhachHang,
+							  k.DiaChi
+                        INTO #Results1
+                        FROM KhachHang AS k
+					    WHERE  (@ten_khach = '' Or k.TenKhachHang like N'%'+@ten_khach+'%') and						
+						(@dia_chi = '' Or k.DiaChi like N'%'+@dia_chi+'%');                   
+                        SELECT @RecordCount = COUNT(*)
+                        FROM #Results1;
+                        SELECT *, 
+                               @RecordCount AS RecordCount
+                        FROM #Results1
+                        WHERE ROWNUMBER BETWEEN(@page_index - 1) * @page_size + 1 AND(((@page_index - 1) * @page_size + 1) + @page_size) - 1
+                              OR @page_index = -1;
+                        DROP TABLE #Results1; 
+            END;
+            ELSE
+            BEGIN
+						SET NOCOUNT ON;
+                        SELECT(ROW_NUMBER() OVER(
+                              ORDER BY TenKhachHang ASC)) AS RowNumber, 
+                              k.KhachHangID,
+							  k.TenKhachHang,
+							  k.DiaChi
+                        INTO #Results2
+                        FROM KhachHang AS k
+					    WHERE  (@ten_khach = '' Or k.TenKhachHang like N'%'+@ten_khach+'%') and						
+						(@dia_chi = '' Or k.DiaChi like N'%'+@dia_chi+'%');                   
+                        SELECT @RecordCount = COUNT(*)
+                        FROM #Results2;
+                        SELECT *, 
+                               @RecordCount AS RecordCount
+                        FROM #Results2;                        
+                        DROP TABLE #Results1; 
+    END;
+End;
+go
+-- hiển thị hóa đơn
 
- 
+
+
+--Tạo hóa đơn mới
+go
+create PROCEDURE [dbo].[sp_hoadon_create]
+(@DonDatHangID             int, 
+ @KhachHangID         int, 
+ @NgayDat        date,  
+ @list_json_chitietdondathang NVARCHAR(MAX)
+)
+AS
+    BEGIN
+		DECLARE @DonDatHang INT;
+        INSERT INTO DonDatHang
+                (DonDatHangID , 
+                 KhachHangID , 
+                 NgayDat             
+                )
+                VALUES
+                (@DonDatHangID, 
+                 @KhachHangID, 
+                 @NgayDat
+                );
+
+				SET @DonDatHang = (SELECT SCOPE_IDENTITY());
+                IF(@list_json_chitietdondathang IS NOT NULL)
+                    BEGIN
+                        INSERT INTO ChiTietDonDatHang
+						 (ChiTietDonDatHangID, 
+						  DonDatHangID,
+                          SanPhamHoaID, 
+                          SoLuong               
+                        )
+                    SELECT JSON_VALUE(p.value, '$.chiTietDonDatHangID'), 
+                            @DonDatHang, 
+                            JSON_VALUE(p.value, '$.SanPhamHoaID'), 
+                            JSON_VALUE(p.value, '$.SoLuong')    
+                    FROM OPENJSON(@list_json_chitietdondathang) AS p;
+                END;
+        SELECT '';
+    END;
+	

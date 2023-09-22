@@ -10,3 +10,15 @@ C:\Users\Gia Bao\source\repos\BTLThayDong\DataModel\obj\Debug\net6.0\DataModel.d
 C:\Users\Gia Bao\source\repos\BTLThayDong\DataModel\obj\Debug\net6.0\refint\DataModel.dll
 C:\Users\Gia Bao\source\repos\BTLThayDong\DataModel\obj\Debug\net6.0\DataModel.pdb
 C:\Users\Gia Bao\source\repos\BTLThayDong\DataModel\obj\Debug\net6.0\ref\DataModel.dll
+C:\Users\Gia Bao\Desktop\BTLBanHoa\DataModel\bin\Debug\net6.0\DataModel.deps.json
+C:\Users\Gia Bao\Desktop\BTLBanHoa\DataModel\bin\Debug\net6.0\DataModel.dll
+C:\Users\Gia Bao\Desktop\BTLBanHoa\DataModel\bin\Debug\net6.0\DataModel.pdb
+C:\Users\Gia Bao\Desktop\BTLBanHoa\DataModel\obj\Debug\net6.0\DataModel.csproj.AssemblyReference.cache
+C:\Users\Gia Bao\Desktop\BTLBanHoa\DataModel\obj\Debug\net6.0\DataModel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gia Bao\Desktop\BTLBanHoa\DataModel\obj\Debug\net6.0\DataModel.AssemblyInfoInputs.cache
+C:\Users\Gia Bao\Desktop\BTLBanHoa\DataModel\obj\Debug\net6.0\DataModel.AssemblyInfo.cs
+C:\Users\Gia Bao\Desktop\BTLBanHoa\DataModel\obj\Debug\net6.0\DataModel.csproj.CoreCompileInputs.cache
+C:\Users\Gia Bao\Desktop\BTLBanHoa\DataModel\obj\Debug\net6.0\DataModel.dll
+C:\Users\Gia Bao\Desktop\BTLBanHoa\DataModel\obj\Debug\net6.0\refint\DataModel.dll
+C:\Users\Gia Bao\Desktop\BTLBanHoa\DataModel\obj\Debug\net6.0\DataModel.pdb
+C:\Users\Gia Bao\Desktop\BTLBanHoa\DataModel\obj\Debug\net6.0\ref\DataModel.dll

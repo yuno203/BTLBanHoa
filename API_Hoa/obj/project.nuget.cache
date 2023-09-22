@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TkQa5yfxSd1M5kl1Ayf2GQfCizbaRxrKbIBo4QSs5CGCkaTqMwX1XtHkwE5uPMUGGzmtKQ0B1aSzGLHwYHeRmA==",
+  "dgSpecHash": "b0v1rq+2Hy5zyn0/BqG84wBkBHMkBUwa5hhus7osIDnBivnOzFQEnhtCRDus91NXvRFh21EiEWsRQJf4ZFR6Jw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Gia Bao\\source\\repos\\BTLThayDong\\API_Hoa\\API_Hoa.csproj",
+  "projectFilePath": "C:\\Users\\Gia Bao\\Desktop\\BTLBanHoa\\API_Hoa\\API_Hoa.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Gia Bao\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\Gia Bao\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
