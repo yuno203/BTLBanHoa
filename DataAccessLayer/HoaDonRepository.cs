@@ -36,6 +36,12 @@ namespace DataAccessLayer
                 "@TenKH",model.TenKH,              
                 "@DiaChi", model.Diachi,
                 "@trangthai", model.trangthai,
+                "@NgayTao",model.NgayTao,
+                "@NgayDuyet",model.NgayDuyet,
+                "@TongGia",model.TongGia,
+                "@Email",model.Email,
+                "@SDT",model.SDT,
+                "@DiaChiGiaoHang",model.DiaChiGiaoHang,
                 "@list_json_chitiethoadon", model.list_json_chitiethoadon != null ? MessageConvert.SerializeObject(model.list_json_chitiethoadon) : null);
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
                 {
@@ -105,6 +111,12 @@ namespace DataAccessLayer
                 "@TenKH", model.TenKH,
                 "@DiaChi", model.Diachi,
                 "@trangthai", model.trangthai,
+                "@NgayTao", model.NgayTao,
+                "@NgayDuyet", model.NgayDuyet,
+                "@TongGia", model.TongGia,
+                "@Email", model.Email,
+                "@SDT", model.SDT,
+                "@DiaChiGiaoHang", model.DiaChiGiaoHang,
                 "@list_json_chitiethoadon", model.list_json_chitiethoadon != null ? MessageConvert.SerializeObject(model.list_json_chitiethoadon) : null);
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
                 {

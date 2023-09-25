@@ -16,6 +16,8 @@ builder.Services.AddTransient<IKhachRepository, KhachRepository>();
 builder.Services.AddTransient<IKhachBusiness, KhachBusiness>();
 builder.Services.AddTransient<IHoaDonBusiness, HoaDonBusiness>();
 builder.Services.AddTransient<IHoaDonRepository, HoaDonRepository>();
+builder.Services.AddTransient<IThongKeBusiness, ThongKeBusiness>();
+builder.Services.AddTransient<IThongKeRepository, ThongKeRepository>();
 
 
 builder.Services.AddControllers();

@@ -7,12 +7,8 @@ using System.Threading.Tasks;
 
 namespace BusinessLogicLayer.Interfaces
 {
-    public partial interface IKhachBusiness
+    public partial interface IThongKeBusiness
     {
-        KhachModel GetDatabyID(string id);
-        bool Create(KhachModel model);
-        bool Update(KhachModel model);
-        bool Delete(string id);
-        List<KhachModel> Search(int pageindex, int pagesize, out long total, string ten_khach, string dia_chi);
+        List<ThongKeKhachModel> Search(int pageIndex, int pageSize, out long total, string ten_khach, DateTime? fr_NgayTao, DateTime? to_NgayTao);
     }
 }
