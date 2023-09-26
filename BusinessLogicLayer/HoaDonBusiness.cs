@@ -29,9 +29,9 @@ namespace BusinessLogicLayer
         {
             return _res.Update1(model);
         }
-        public List<HoaDonModel> Search(int pageIndex, int pageSize, out long total, string hoten, string diachi, bool trangthai)
+        public List<HoaDonModel> Search(int pageIndex, int pageSize, out long total, string hoten, string diachi, bool trangthai, DateTime?ngayTao)
         {
-            return _res.Search(pageIndex, pageSize,out total, hoten, diachi, trangthai);
+            return _res.Search(pageIndex, pageSize,out total, hoten, diachi, trangthai,ngayTao);
         }
 
 

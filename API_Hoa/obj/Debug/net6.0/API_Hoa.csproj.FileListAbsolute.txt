@@ -82,3 +82,11 @@ C:\Users\Gia Bao\Desktop\BTLBanHoa\API_Hoa\obj\Debug\net6.0\refint\API_Hoa.dll
 C:\Users\Gia Bao\Desktop\BTLBanHoa\API_Hoa\obj\Debug\net6.0\API_Hoa.pdb
 C:\Users\Gia Bao\Desktop\BTLBanHoa\API_Hoa\obj\Debug\net6.0\API_Hoa.genruntimeconfig.cache
 C:\Users\Gia Bao\Desktop\BTLBanHoa\API_Hoa\obj\Debug\net6.0\ref\API_Hoa.dll
+C:\Users\Gia Bao\Desktop\BTLBanHoa\API_Hoa\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Gia Bao\Desktop\BTLBanHoa\API_Hoa\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Gia Bao\Desktop\BTLBanHoa\API_Hoa\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Gia Bao\Desktop\BTLBanHoa\API_Hoa\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Gia Bao\Desktop\BTLBanHoa\API_Hoa\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Gia Bao\Desktop\BTLBanHoa\API_Hoa\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Gia Bao\Desktop\BTLBanHoa\API_Hoa\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Gia Bao\Desktop\BTLBanHoa\API_Hoa\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll

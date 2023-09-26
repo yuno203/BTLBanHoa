@@ -1,11 +1,13 @@
 ﻿using BusinessLogicLayer;
 using BusinessLogicLayer.Interfaces;
 using DataModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API_Hoa.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ThongKeController : ControllerBase
@@ -15,7 +17,7 @@ namespace API_Hoa.Controllers
         {
             _thongkeBusiness = khachBusiness;
         }
-
+       
         [Route("search")]
         [HttpPost]
         public IActionResult Search([FromBody] Dictionary<string, object> formData)

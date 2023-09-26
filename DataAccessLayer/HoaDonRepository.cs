@@ -17,7 +17,7 @@ namespace DataAccessLayer
             try
             {
                 var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_hoadon_get_by_id",
-                     "@id", id);
+                     "@MaHoaDon", id);
                 if (!string.IsNullOrEmpty(msgError))
                     throw new Exception(msgError);
                 return dt.ConvertTo<HoaDonModel>().FirstOrDefault();
@@ -78,7 +78,8 @@ namespace DataAccessLayer
         //    }
         //}
 
-        public List<HoaDonModel> Search(int pageIndex, int pageSize, out long total, string ten_khach, string dia_chi, bool trang_thai)
+        public List<HoaDonModel> Search(int pageIndex, int pageSize, out long total, string ten_khach, string dia_chi, bool trang_thai,
+            DateTime? ngayTao  )
         {
             string msgError = ""; 
             total = 0;
@@ -89,7 +90,12 @@ namespace DataAccessLayer
                     "@page_size", pageSize,
                     "@ten_khach", ten_khach,
                     "@dia_chi", dia_chi,
-                    "@trang_thai", trang_thai);
+                    "@trang_thai", trang_thai,
+                    "@NgayTao", ngayTao
+                    //"@Email",Email,
+                    //"@SDT",SDT,
+                    //"@DiaChiGiaoHang", DiaChiGiaoHang
+                    );
                 if (!string.IsNullOrEmpty(msgError))
                     throw new Exception(msgError);
                 if (dt.Rows.Count > 0) total = (long)dt.Rows[0]["RecordCount"];

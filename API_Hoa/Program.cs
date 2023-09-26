@@ -2,6 +2,10 @@ using BusinessLogicLayer;
 using BusinessLogicLayer.Interfaces;
 using DataAccessLayer;
 using DataAccessLayer.Interfaces;
+using DataModel;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +22,10 @@ builder.Services.AddTransient<IHoaDonBusiness, HoaDonBusiness>();
 builder.Services.AddTransient<IHoaDonRepository, HoaDonRepository>();
 builder.Services.AddTransient<IThongKeBusiness, ThongKeBusiness>();
 builder.Services.AddTransient<IThongKeRepository, ThongKeRepository>();
+builder.Services.AddTransient<IHoaDonNhapBusiness, HoaDonNhapBusiness>();
+builder.Services.AddTransient<IHoaDonNhapRepository, HoaDonNhapRepository>();
+builder.Services.AddTransient<IUserBusiness, UserBusiness>();
+builder.Services.AddTransient<IUserRepository, UserRepository>();
 
 
 builder.Services.AddControllers();
@@ -25,6 +33,30 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// configure strongly typed settings objects
+IConfiguration configuration = builder.Configuration;
+var appSettingsSection = configuration.GetSection("AppSettings");
+builder.Services.Configure<AppSettings>(appSettingsSection);
+// configure jwt authentication
+var appSettings = appSettingsSection.Get<AppSettings>();
+var key = Encoding.ASCII.GetBytes(appSettings.Secret);
+builder.Services.AddAuthentication(x =>
+{
+    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(x =>
+{
+    x.RequireHttpsMetadata = false;
+    x.SaveToken = true;
+    x.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(key),
+        ValidateIssuer = false,
+        ValidateAudience = false
+    };
+});
 
 var app = builder.Build();
 
@@ -42,3 +74,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+

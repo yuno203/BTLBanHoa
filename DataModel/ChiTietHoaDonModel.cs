@@ -7,7 +7,7 @@
         public int MaSanPham { get; set; }
         public int SoLuong { get; set; }
         public double DonGia { get; set; }
-       // public int status { get; set; }
-
+        public int status { get; set; }
+       
     }
 }

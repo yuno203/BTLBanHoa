@@ -52,9 +52,22 @@ namespace Api.BanHang.Controllers
                 if (formData.Keys.Contains("diachi") && !string.IsNullOrEmpty(Convert.ToString(formData["diachi"]))) { diachi = Convert.ToString(formData["diachi"]); }
 
                 bool trang_thai = formData.ContainsKey("trangthai") && bool.TryParse(formData["trangthai"].ToString(), out bool parsedTrangThai) ? parsedTrangThai : false;
+                DateTime? ngayTao = null; // Khởi tạo biến ngay_tao kiểu DateTime?
+
+                if (formData.Keys.Contains("ngay_tao") && !string.IsNullOrEmpty(Convert.ToString(formData["ngay_tao"])))
+                {
+                    if (DateTime.TryParse(Convert.ToString(formData["ngay_tao"]), out DateTime parsedNgayTao))
+                    {
+                        ngayTao = parsedNgayTao;
+                    }
+                    else
+                    {
+                        // Xử lý trường hợp không thể chuyển đổi ngày tạo thành kiểu DateTime
+                    }
+                }
 
                 long total = 0;
-                var data = _hoadonBusiness.Search(page, pageSize,out total , ten_khach, diachi, trang_thai);
+                var data = _hoadonBusiness.Search(page, pageSize,out total , ten_khach, diachi, trang_thai,ngayTao);
                 return Ok(
                    new
                    {
