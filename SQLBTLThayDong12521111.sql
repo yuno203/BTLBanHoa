@@ -242,6 +242,7 @@ INSERT [dbo].[ChuyenMucs] ([MaChuyenMuc], [MaChuyenMucCha], [TenChuyenMuc], [Dac
 INSERT [dbo].[ChuyenMucs] ([MaChuyenMuc], [MaChuyenMucCha], [TenChuyenMuc], [DacBiet], [NoiDung]) VALUES (50, 32, N'Hoa tươi', 0, NULL)
 INSERT [dbo].[ChuyenMucs] ([MaChuyenMuc], [MaChuyenMucCha], [TenChuyenMuc], [DacBiet], [NoiDung]) VALUES (51, 32, N'Hoa tươi', 0, NULL)
 SET IDENTITY_INSERT [dbo].[ChuyenMucs] OFF
+
 GO
 SET IDENTITY_INSERT [dbo].[HoaDonNhaps] ON 
 
@@ -301,7 +302,7 @@ INSERT [dbo].[SanPhams] ([MaSanPham], [MaChuyenMuc], [TenSanPham], [AnhDaiDien],
 INSERT [dbo].[SanPhams] ([MaSanPham], [MaChuyenMuc], [TenSanPham], [AnhDaiDien], [Gia], [GiaGiam], [SoLuong], [TrangThai], [LuotXem], [DacBiet]) VALUES (49, 49, N'hhthth','khong co', CAST(100000 AS Decimal(18, 0)), CAST(0 AS Decimal(18, 0)), 200, 1, 0, 0)
 INSERT [dbo].[SanPhams] ([MaSanPham], [MaChuyenMuc], [TenSanPham], [AnhDaiDien], [Gia], [GiaGiam], [SoLuong], [TrangThai], [LuotXem], [DacBiet]) VALUES (50, 50, N'grgrgr','khong co', CAST(100000 AS Decimal(18, 0)), CAST(0 AS Decimal(18, 0)), 200, 1, 0, 0)
 INSERT [dbo].[SanPhams] ([MaSanPham], [MaChuyenMuc], [TenSanPham], [AnhDaiDien], [Gia], [GiaGiam], [SoLuong], [TrangThai], [LuotXem], [DacBiet]) VALUES (51, 51, N'Q','khong co', CAST(120000 AS Decimal(18, 0)), CAST(0 AS Decimal(18, 0)), 200, 1, 4, 0)
-SET IDENTITY_INSERT [dbo].[SanPhams] OFF
+
 GO
 
 INSERT [dbo].[SanPhams_NhaPhanPhois] ([MaSanPham], [MaNhaPhanPhoi]) VALUES (47, 1)
@@ -322,62 +323,71 @@ INSERT [dbo].[SanPhams_NhaPhanPhois] ([MaSanPham], [MaNhaPhanPhoi]) VALUES (51, 
 GO
 
 
---ALTER TABLE [dbo].[ChiTietHoaDonNhaps]  WITH CHECK ADD  CONSTRAINT [FK_ChiTietHoaDonNhaps_HoaDonNhaps] FOREIGN KEY([MaHoaDon])
---REFERENCES [dbo].[HoaDonNhaps] ([MaHoaDon])
---GO
---ALTER TABLE [dbo].[ChiTietHoaDonNhaps] CHECK CONSTRAINT [FK_ChiTietHoaDonNhaps_HoaDonNhaps]
---GO
---ALTER TABLE [dbo].[ChiTietHoaDonNhaps]  WITH CHECK ADD  CONSTRAINT [FK_ChiTietHoaDonNhaps_SanPhams] FOREIGN KEY([MaSanPham])
---REFERENCES [dbo].[SanPhams] ([MaSanPham])
---GO
---ALTER TABLE [dbo].[ChiTietHoaDonNhaps] CHECK CONSTRAINT [FK_ChiTietHoaDonNhaps_SanPhams]
---GO
---ALTER TABLE [dbo].[ChiTietHoaDons]  WITH CHECK ADD  CONSTRAINT [FK_DetailBill_Bills] FOREIGN KEY([MaHoaDon])
---REFERENCES [dbo].[HoaDons] ([MaHoaDon])
---GO
---ALTER TABLE [dbo].[ChiTietHoaDons] CHECK CONSTRAINT [FK_DetailBill_Bills]
---GO
---ALTER TABLE [dbo].[ChiTietHoaDons]  WITH CHECK ADD  CONSTRAINT [FK_DetailBill_Products] FOREIGN KEY([MaSanPham])
---REFERENCES [dbo].[SanPhams] ([MaSanPham])
---GO
---ALTER TABLE [dbo].[ChiTietHoaDons] CHECK CONSTRAINT [FK_DetailBill_Products]
---GO
---ALTER TABLE [dbo].[ChiTietSanPhams]  WITH CHECK ADD  CONSTRAINT [FK_ChiTietSanPhams_NhaSanXuats] FOREIGN KEY([MaNhaSanXuat])
---REFERENCES [dbo].[HangSanXuats] ([MaHang])
---GO
---ALTER TABLE [dbo].[ChiTietSanPhams] CHECK CONSTRAINT [FK_ChiTietSanPhams_NhaSanXuats]
---GO
---ALTER TABLE [dbo].[ChiTietSanPhams]  WITH CHECK ADD  CONSTRAINT [FK_DetailProducts_Products] FOREIGN KEY([MaSanPham])
---REFERENCES [dbo].[SanPhams] ([MaSanPham])
---GO
---ALTER TABLE [dbo].[ChiTietSanPhams] CHECK CONSTRAINT [FK_DetailProducts_Products]
---GO
---ALTER TABLE [dbo].[HoaDonNhaps]  WITH CHECK ADD  CONSTRAINT [FK_HoaDonNhaps_NhaPhanPhois] FOREIGN KEY([MaNhaPhanPhoi])
---REFERENCES [dbo].[NhaPhanPhois] ([MaNhaPhanPhoi])
---GO
---ALTER TABLE [dbo].[HoaDonNhaps] CHECK CONSTRAINT [FK_HoaDonNhaps_NhaPhanPhois]
---GO
---ALTER TABLE [dbo].[HoaDonNhaps]  WITH CHECK ADD  CONSTRAINT [FK_HoaDonNhaps_TaiKhoans] FOREIGN KEY([MaTaiKhoan])
+GO
+ALTER TABLE [dbo].[ChiTietHoaDonNhaps]  WITH CHECK ADD  CONSTRAINT [FK_ChiTietHoaDonNhaps_HoaDonNhaps] FOREIGN KEY([MaHoaDon])
+REFERENCES [dbo].[HoaDonNhaps] ([MaHoaDon])
+GO
+ALTER TABLE [dbo].[ChiTietHoaDonNhaps] CHECK CONSTRAINT [FK_ChiTietHoaDonNhaps_HoaDonNhaps]
+GO
+ALTER TABLE [dbo].[ChiTietHoaDonNhaps]  WITH CHECK ADD  CONSTRAINT [FK_ChiTietHoaDonNhaps_SanPhams] FOREIGN KEY([MaSanPham])
+REFERENCES [dbo].[SanPhams] ([MaSanPham])
+GO
+ALTER TABLE [dbo].[ChiTietHoaDonNhaps] CHECK CONSTRAINT [FK_ChiTietHoaDonNhaps_SanPhams]
+GO
+ALTER TABLE [dbo].[ChiTietHoaDons]  WITH CHECK ADD  CONSTRAINT [FK_DetailBill_Bills] FOREIGN KEY([MaHoaDon])
+REFERENCES [dbo].[HoaDons] ([MaHoaDon])
+GO
+ALTER TABLE [dbo].[ChiTietHoaDons] CHECK CONSTRAINT [FK_DetailBill_Bills]
+GO
+ALTER TABLE [dbo].[ChiTietHoaDons]  WITH CHECK ADD  CONSTRAINT [FK_DetailBill_Products] FOREIGN KEY([MaSanPham])
+REFERENCES [dbo].[SanPhams] ([MaSanPham])
+GO
+ALTER TABLE [dbo].[ChiTietHoaDons] CHECK CONSTRAINT [FK_DetailBill_Products]
+GO
+ALTER TABLE [dbo].[ChiTietSanPhams]  WITH CHECK ADD  CONSTRAINT [FK_ChiTietSanPhams_NhaSanXuats] FOREIGN KEY([MaNhaSanXuat])
+REFERENCES [dbo].[HangSanXuats] ([MaHang])
+GO
+ALTER TABLE [dbo].[ChiTietSanPhams] CHECK CONSTRAINT [FK_ChiTietSanPhams_NhaSanXuats]
+GO
+ALTER TABLE [dbo].[ChiTietSanPhams]  WITH CHECK ADD  CONSTRAINT [FK_DetailProducts_Products] FOREIGN KEY([MaSanPham])
+REFERENCES [dbo].[SanPhams] ([MaSanPham])
+GO
+ALTER TABLE [dbo].[ChiTietSanPhams] CHECK CONSTRAINT [FK_DetailProducts_Products]
+GO
+--ALTER TABLE [dbo].[ChiTietTaiKhoans]  WITH CHECK ADD  CONSTRAINT [FK_InformationAccounts_Accounts] FOREIGN KEY([MaTaiKhoan])
 --REFERENCES [dbo].[TaiKhoans] ([MaTaiKhoan])
---GO
---ALTER TABLE [dbo].[HoaDonNhaps] CHECK CONSTRAINT [FK_HoaDonNhaps_TaiKhoans]
---GO
---ALTER TABLE [dbo].[SanPhams]  WITH CHECK ADD  CONSTRAINT [FK_Products_Categories] FOREIGN KEY([MaChuyenMuc])
---REFERENCES [dbo].[ChuyenMucs] ([MaChuyenMuc])
---GO
---ALTER TABLE [dbo].[SanPhams] CHECK CONSTRAINT [FK_Products_Categories]
---GO
---ALTER TABLE [dbo].[SanPhams_NhaPhanPhois]  WITH CHECK ADD  CONSTRAINT [FK_SanPhams_NhaPhanPhois_NhaPhanPhois] FOREIGN KEY([MaNhaPhanPhoi])
---REFERENCES [dbo].[NhaPhanPhois] ([MaNhaPhanPhoi])
---GO
---ALTER TABLE [dbo].[SanPhams_NhaPhanPhois] CHECK CONSTRAINT [FK_SanPhams_NhaPhanPhois_NhaPhanPhois]
---GO
---ALTER TABLE [dbo].[SanPhams_NhaPhanPhois]  WITH CHECK ADD  CONSTRAINT [FK_SanPhams_NhaPhanPhois_SanPhams] FOREIGN KEY([MaSanPham])
---REFERENCES [dbo].[SanPhams] ([MaSanPham])
---GO
---ALTER TABLE [dbo].[SanPhams_NhaPhanPhois] CHECK CONSTRAINT [FK_SanPhams_NhaPhanPhois_SanPhams]
---GO
-
+GO
+--ALTER TABLE [dbo].[ChiTietTaiKhoans] CHECK CONSTRAINT [FK_InformationAccounts_Accounts]
+GO
+ALTER TABLE [dbo].[HoaDonNhaps]  WITH CHECK ADD  CONSTRAINT [FK_HoaDonNhaps_NhaPhanPhois] FOREIGN KEY([MaNhaPhanPhoi])
+REFERENCES [dbo].[NhaPhanPhois] ([MaNhaPhanPhoi])
+GO
+ALTER TABLE [dbo].[HoaDonNhaps] CHECK CONSTRAINT [FK_HoaDonNhaps_NhaPhanPhois]
+GO
+ALTER TABLE [dbo].[HoaDonNhaps]  WITH CHECK ADD  CONSTRAINT [FK_HoaDonNhaps_TaiKhoans] FOREIGN KEY([MaTaiKhoan])
+REFERENCES [dbo].[TaiKhoans] ([MaTaiKhoan])
+GO
+ALTER TABLE [dbo].[HoaDonNhaps] CHECK CONSTRAINT [FK_HoaDonNhaps_TaiKhoans]
+GO
+ALTER TABLE [dbo].[SanPhams]  WITH CHECK ADD  CONSTRAINT [FK_Products_Categories] FOREIGN KEY([MaChuyenMuc])
+REFERENCES [dbo].[ChuyenMucs] ([MaChuyenMuc])
+GO
+ALTER TABLE [dbo].[SanPhams] CHECK CONSTRAINT [FK_Products_Categories]
+GO
+ALTER TABLE [dbo].[SanPhams_NhaPhanPhois]  WITH CHECK ADD  CONSTRAINT [FK_SanPhams_NhaPhanPhois_NhaPhanPhois] FOREIGN KEY([MaNhaPhanPhoi])
+REFERENCES [dbo].[NhaPhanPhois] ([MaNhaPhanPhoi])
+GO
+ALTER TABLE [dbo].[SanPhams_NhaPhanPhois] CHECK CONSTRAINT [FK_SanPhams_NhaPhanPhois_NhaPhanPhois]
+GO
+ALTER TABLE [dbo].[SanPhams_NhaPhanPhois]  WITH CHECK ADD  CONSTRAINT [FK_SanPhams_NhaPhanPhois_SanPhams] FOREIGN KEY([MaSanPham])
+REFERENCES [dbo].[SanPhams] ([MaSanPham])
+GO
+ALTER TABLE [dbo].[SanPhams_NhaPhanPhois] CHECK CONSTRAINT [FK_SanPhams_NhaPhanPhois_SanPhams]
+GO
+ALTER TABLE [dbo].[TaiKhoans]  WITH CHECK ADD  CONSTRAINT [FK_Accounts_TypeAccounts] FOREIGN KEY([LoaiTaiKhoan])
+REFERENCES [dbo].[LoaiTaiKhoans] ([MaLoai])
+GO
+ALTER TABLE [dbo].[TaiKhoans] CHECK CONSTRAINT [FK_Accounts_TypeAccounts]
 
 
 
@@ -916,3 +926,203 @@ AS
       FROM TaiKhoans
       where TenTaiKhoan= @taikhoan and MatKhau = @matkhau;
     END;
+
+
+
+GO
+----------- SẢN PHẨM -------------------
+
+alter PROCEDURE [dbo].[sp_SanPham_create]
+(
+ @MaChuyenMuc          int, 
+ @TenSanPham nvarchar(150),
+ @AnhDaiDien nvarchar(350),
+ @Gia decimal(18, 0),
+ @GiaGiam decimal(18, 0),
+ @SoLuong int,
+ @TrangThai bit,
+ @LuotXem int,
+ @DacBiet bit,
+ @list_json_chitietsanpham NVARCHAR(MAX)
+)
+AS
+    BEGIN
+		DECLARE @MaSanPham INT;
+        INSERT INTO SanPhams
+                (
+                 MaChuyenMuc, 
+				 TenSanPham, 
+				 AnhDaiDien,
+				Gia,
+				GiaGiam,
+				SoLuong,
+				TrangThai,
+				LuotXem,
+				DacBiet
+                )
+                VALUES
+                (
+                 @MaChuyenMuc, 
+				 @TenSanPham ,
+				 @AnhDaiDien ,
+				@Gia,
+				@GiaGiam,
+				@SoLuong,
+				@TrangThai,
+				@LuotXem,
+				@DacBiet
+                );
+
+				SET @MaSanPham = (SELECT SCOPE_IDENTITY());
+                IF(@list_json_chitietsanpham IS NOT NULL)
+                    BEGIN
+                        INSERT INTO ChiTietSanPhams
+						 (
+						  MaSanPham,
+                          MaNhaSanXuat, 
+                           MoTa,
+						  ChiTiet
+                        )
+                    SELECT 
+			   @MaSanPham,
+			  JSON_VALUE(p.value, '$.maNhaSanXuat') as MaNhaSanXuat,
+			  JSON_VALUE(p.value, '$.moTa') as MoTa,
+			  JSON_VALUE(p.value, '$.chiTiet') as ChiTiet
+			
+                    FROM OPENJSON(@list_json_chitietsanpham) AS p;
+                END;
+        SELECT '';
+    END;
+
+
+
+-- them xoa sua San Pham
+go
+create PROCEDURE [dbo].[update1_SanPham]
+(@MaSanPham              int, 
+ @MaChuyenMuc          int, 
+ @TenSanPham nvarchar(150),
+ @AnhDaiDien nvarchar(350),
+ @Gia decimal(18, 0),
+ @GiaGiam decimal(18, 0),
+ @SoLuong int,
+ @TrangThai bit,
+ @LuotXem int,
+ @DacBiet bit,
+ @list_json_chitietsanpham NVARCHAR(MAX)
+)
+AS
+    BEGIN
+		UPDATE SanPhams
+		SET
+				
+                 MaChuyenMuc = @MaChuyenMuc, 
+				 TenSanPham = @TenSanPham, 
+				 AnhDaiDien = @AnhDaiDien,
+				 Gia  =  @Gia ,
+				 GiaGiam  =  @GiaGiam ,
+				 SoLuong  =  @SoLuong ,
+				 TrangThai  =  @TrangThai ,
+				 LuotXem  =  @LuotXem ,
+				 DacBiet  =  @DacBiet 
+	
+		WHERE MaSanPham = @MaSanPham;
+		
+		IF(@list_json_chitietsanpham IS NOT NULL) 
+		BEGIN
+			 -- Insert data to temp table 
+		   SELECT
+			  JSON_VALUE(p.value, '$.maChiTietSanPham') as MaChiTietSanPham,
+			  JSON_VALUE(p.value, '$.maSanPham') as MaSanPham,
+			  JSON_VALUE(p.value, '$.maNhaSanXuat') as MaNhaSanXuat,
+			  JSON_VALUE(p.value, '$.moTa') as MoTa,
+			  JSON_VALUE(p.value, '$.chiTiet') as ChiTiet,
+			  JSON_VALUE(p.value, '$.status') AS status 
+			  INTO #Results 
+		   FROM OPENJSON(@list_json_chitietsanpham) AS p;
+		 
+		 -- Insert data to table with STATUS = 1;
+			INSERT INTO ChiTietSanPhams (MaChiTietSanPham, 
+						  MaSanPham,
+                          MaNhaSanXuat, 
+                           MoTa,
+						  ChiTiet
+						  ) 
+			   SELECT
+				  #Results.MaChiTietSanPham,
+				  @MaSanPham,
+				  #Results.MaNhaSanXuat,
+				  #Results.MoTa,
+				  #Results.ChiTiet
+				
+			   FROM  #Results 
+			   WHERE #Results.status = '1' 
+			
+			-- Update data to table with STATUS = 2
+			  UPDATE ChiTietSanPhams 
+			  SET
+				 MaNhaSanXuat = #Results.MaNhaSanXuat,
+				 MoTa = #Results.MoTa,
+				 ChiTiet = #Results.ChiTiet
+			  FROM #Results 
+			  WHERE  ChiTietSanPhams.MaChiTietSanPham= #Results.MaChiTietSanPham AND #Results.status = '2';
+			
+			-- Delete data to table with STATUS = 3
+			DELETE C
+			FROM ChiTietSanPhams C
+			INNER JOIN #Results R
+				ON C.MaChiTietSanPham=R.MaChiTietSanPham
+			WHERE R.status = '3';
+			DROP TABLE #Results;
+		END;
+        SELECT '';
+    END;
+
+
+--tim kiem san pham
+go
+create PROCEDURE [dbo].[sp_SanPham_search] (@page_index  INT, 
+                                       @page_size   INT,
+									   @tenSanPham Nvarchar(50)
+									  
+									  
+									   )
+AS
+    BEGIN
+        DECLARE @RecordCount BIGINT;
+        IF(@page_size <> 0)
+            BEGIN
+						SET NOCOUNT ON;
+                        SELECT(ROW_NUMBER() OVER(
+                              ORDER BY TenSanPham ASC)) AS RowNumber, 
+                              h.TenSanPham
+                        INTO #Results1
+                        FROM SanPhams AS h
+					    WHERE  (@tenSanPham = '' Or h.TenSanPham like N'%'+@tenSanPham+'%') 
+						;               
+                        SELECT @RecordCount = COUNT(*)
+                        FROM #Results1;
+                        SELECT *, 
+                               @RecordCount AS RecordCount
+                        FROM #Results1
+                        WHERE ROWNUMBER BETWEEN(@page_index - 1) * @page_size + 1 AND(((@page_index - 1) * @page_size + 1) + @page_size) - 1
+                              OR @page_index = -1;
+                        DROP TABLE #Results1; 
+            END;
+            ELSE
+            BEGIN
+						SET NOCOUNT ON;
+                        SELECT(ROW_NUMBER() OVER(
+                              ORDER BY TenSanPham ASC)) AS RowNumber, 
+                              h.TenSanPham
+                        INTO #Results2
+                        FROM SanPhams AS h
+					     WHERE  (@tenSanPham = '' Or h.TenSanPham like N'%'+@tenSanPham+'%') ;              
+                        SELECT @RecordCount = COUNT(*)
+                        FROM #Results2;
+                        SELECT *, 
+                               @RecordCount AS RecordCount
+                        FROM #Results2              
+                        DROP TABLE #Results1; 
+    END;
+End;

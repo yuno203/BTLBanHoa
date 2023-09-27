@@ -9,6 +9,6 @@
         public string DonViTinh { get; set; }
         public decimal GiaNhap { get; set; }
         public decimal TongTien { get; set; }
-
+        public int status { get; set; }
     }
 }
