@@ -1,0 +1,7 @@
+C:\Users\Gia Bao\Desktop\BTLBanHoa\GetWay\Gateway\obj\Debug\net6.0\Gateway.csproj.AssemblyReference.cache
+C:\Users\Gia Bao\Desktop\BTLBanHoa\GetWay\Gateway\obj\Debug\net6.0\Gateway.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gia Bao\Desktop\BTLBanHoa\GetWay\Gateway\obj\Debug\net6.0\Gateway.AssemblyInfoInputs.cache
+C:\Users\Gia Bao\Desktop\BTLBanHoa\GetWay\Gateway\obj\Debug\net6.0\Gateway.AssemblyInfo.cs
+C:\Users\Gia Bao\Desktop\BTLBanHoa\GetWay\Gateway\obj\Debug\net6.0\Gateway.csproj.CoreCompileInputs.cache
+C:\Users\Gia Bao\Desktop\BTLBanHoa\GetWay\Gateway\obj\Debug\net6.0\Gateway.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Gia Bao\Desktop\BTLBanHoa\GetWay\Gateway\obj\Debug\net6.0\Gateway.MvcApplicationPartsAssemblyInfo.cache

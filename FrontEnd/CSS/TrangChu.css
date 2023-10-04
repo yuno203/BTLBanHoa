@@ -1,0 +1,336 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+}
+html{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.navbar{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    z-index: 100;
+    float: left;
+    box-shadow: rgba(0, 0, 0, 0,12) 0px 1px 4px 1px;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color:#ffe6dd;
+}
+.navbar-nav{
+    flex-direction: row;
+    display: flex;
+    padding: 0;
+}
+.navbar-link{
+    float: left;
+    text-align: center;
+    padding: 21px  10px;
+    position: relative;
+}
+.navbar-link img{
+    width: 50%;
+}
+.navbar-link:hover{
+    cursor: pointer;
+}
+.nav-right{
+    margin-left: auto;
+}
+.navbar-search{
+    position: relative;
+    margin: auto;
+    width: 50%;
+}
+.navbar-search input{
+    border: none;
+    padding: 12px 50px 12px 50px;
+    outline: none;
+    width: 100%;
+    border-radius: 28px;
+}
+.logo{
+    height: 60px;
+    padding: 10px;
+}
+.avt-menu img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+.avt-menu{
+    padding: 6px;
+}
+.navbar-bell{
+    font-size: 10px;
+    position: absolute;
+    padding: 1px 2px;
+    right: 4px;
+    top: 14px;
+    color: #fff;
+    background-color: rgb(242, 128, 128);
+    border-radius: 50%;
+}
+.bell{
+    position: relative;
+}
+.bell:hover{
+    cursor: pointer;
+}
+.menu-bell{
+    position: absolute;
+    display: none;
+    top: 100%;
+    right: 20%;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow:0px 8px 16px 0px rgba(0, 0, 0, 0,12);
+    z-index: 1;
+    padding: unset;
+    border: 1px solid #fff;
+    max-width: 300px;
+    
+}
+.menu-bell-content{
+    max-width: 500px;
+    overflow-y: auto;
+    max-height: 400px;
+}
+.widthmin{
+    min-width: 300px;
+}
+.menu-bell-content-item{
+    width: 100%;
+}
+
+.menu-bell-content-link{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    color: black;
+}
+.menu-bell-content-link:hover{
+    background-color: #ffe6dd;
+}
+.menu-bell-content-link div{
+    min-height: 50px;
+    position: relative;
+    height: 50px;
+}
+.menu-bell-content-link i{
+    font-size: 20px;
+    left:50%;
+    top:30%;
+   position: absolute;
+   transform: translate(-0%,-50%);
+}
+.menu-bell-content-link span{
+    font-size: 15px;
+    width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+}
+.menu-bell-content-link span>span{
+    font-size: 10px;
+    
+}
+.menu-bell-content-link:hover{
+    cursor: pointer;
+}
+.menu-bell-header{
+    padding: 15px;
+    text-align: center;
+    border-bottom:1px solid rgb(197, 190, 190);
+   
+}
+.menu-bell-footter{
+    padding: 15px;
+    text-align: center;
+    border-top:1px solid rgb(195, 193, 193);
+   
+}
+.overlay-scrollbar::-webkit-scrollbar{
+    width: 5px;
+    height: 2px;
+    display: none;
+}
+.overlay-scrollbar:hover::-webkit-scrollbar{
+    display: block;
+}
+.overlay-scrollbar::-webkit-scrollbar-thumb{
+    background-color: #6f6d6d;
+    border-radius:10rem;
+    border: 1px;
+}
+
+.menu-avt{
+  position: absolute;
+  top: 90%;
+  right:1% ;
+  z-index: 2;  
+  display: none;
+  padding: unset;
+  max-width: 300px;
+  background-color: #fff;
+  border-radius: 8px;
+
+}
+.menu-avt-content{
+    max-width: 500px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+.menu-avt-item{
+    width: 100%;
+}
+.menu-avt-link{
+    display: flex;
+    padding: 10px 10px;
+    color: black;
+}
+.menu-avt-link:hover{
+    background-color: #ffe6dd;
+    border-radius:1ch ;
+}
+.menu-avt-link div{
+    min-height: 30px;
+    position: relative;
+}
+.widthmin1{
+    min-width: 200px;
+}
+.menu-avt-link span{
+    width: 200px;
+    text-align: center;
+    font-size: 17px;
+}
+.menu-expand{
+    display: flex;
+}
+.menu-left{
+    margin-top: 2px;
+    width: 82px;
+    height: 1000px;
+    position: fixed;
+    margin-top: 65px;
+    overflow: hidden;
+    z-index: 100;
+    border: 2px solid #fff;
+    background-color: #555555;
+    transition: width 0.5s;
+}
+.menu-left-content{
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   padding: 0;
+   margin: 0;
+  
+}
+.menu-left-content-item{
+    width: 100%;
+}
+.menu-left-content-link{
+    display: flex;
+    align-items: center;
+    color: #000;
+}
+.menu-left-content-link i
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-0%,-50%);
+}
+.menu-left-content-link div{
+position: relative;
+   min-width: 82px;
+   height: 50px;
+  
+}
+.menu-left-content-link:hover{
+    background-color: #CCCCCC;
+}
+
+.menu-left:hover{
+    width: 250px;
+}
+
+.content-right{
+    padding: 10px;
+    padding-top:75px ;
+    background-color: #EEEEEE;
+    padding-left: 52px;
+    height: 1000px;
+    transition: margin-left .5s;
+}
+.product-management {
+    max-width: 100%;
+   margin-left: 5%;
+  }
+  
+  .product-management h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .product-management table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .product-management table th,
+  .product-management table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .product-management table th {
+    background-color: #f1f1f1;
+    font-weight: bold;
+  }
+  
+  .product-management table td img {
+    max-width: 100px;
+    width: 50px;
+  }
+  
+  .product-management table td button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .product-management table td button:last-child {
+    margin-right: 0;
+  }
+.menu-left-content-link.active{
+   background-color: #007bff;
+   color: #555555;
+}
+.menu-left-content-link.active div{
+    border-left:5px solid rgb(244, 152, 152);
+ }
+ 
+.menu-left-content-link.active i{
+   color: rgb(236, 172, 172);
+}
+.nav-expand .content-right{
+    margin-left: 250px;
+}
+.nav-expand .menu-left{
+    width: 250px;
+}

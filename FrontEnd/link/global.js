@@ -1,0 +1,1 @@
+var current_url = "http://localhost:44674";
