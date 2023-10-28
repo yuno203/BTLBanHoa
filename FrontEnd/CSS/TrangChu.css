@@ -334,3 +334,78 @@ position: relative;
 .nav-expand .menu-left{
     width: 250px;
 }
+
+
+.ADDDD{
+    display:flex;
+    justify-content: center;
+}
+
+.add-sp{
+    background: #efc3c3;
+    position: fixed;
+    top: 80px;
+    width: 50%;
+    transition: all 1s;
+    transform-origin: top;
+    transform: scaleY(0);
+}
+.add-admin .tieude{
+    font-size: 24px;
+    text-align: center;
+    color: #9d5757;
+}
+
+.tsp,.gia,.sl,.ha,.dm,.avt1,.mnsx,.mota,.chitiet{
+    width: 90%;
+    display: flex;
+    line-height: 20px;
+    margin: 17px 58px 23px 18px;
+}
+.add-admin input{
+    width: 80%;
+    border-radius: 10px;
+}
+.add-admin span{
+    width: 20%;
+}
+
+.btn{
+    width: 100%;
+    padding: 10px 10px 10px 10px;
+}
+.btn button{
+    padding: 10px 10px 10px 10px;
+    justify-content: last baseline;
+    width: 15%;
+    float: right;
+    margin: 10px 10px 10px 10px;
+    border-radius: 18px;
+}
+.themmoi ,.xoanhieu{
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 18px;
+    border:1px solid #FFF;
+}
+.footer{
+    width: 100%;
+    text-align: center;
+}
+.footer button{
+    line-height: 46px;
+    display: inline-block;
+    height: 46px;
+    min-width: 60px;
+    border: none;
+    background-color: #EEEEEE
+}
+.span-page{
+    border-bottom: 1px solid #d5d9d9;
+    border-top: 1px solid #d5d9d9;
+    display: inline-block;
+    border-radius: 8px;
+}
+.span-page button:hover{
+    background-color: #c5c5c5;
+}

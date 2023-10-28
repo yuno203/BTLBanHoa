@@ -13,7 +13,7 @@
         public int LuotXem { get; set; }
         public bool DacBiet { get; set; }
         public List<ChiTietSanPhamModel> list_json_chitietsanpham { get; set; }
-        public List<SanPhamNhaPhanPhoiModel> list_json_sanphamnhaphanphoi { get; set; }
+        //public List<SanPhamNhaPhanPhoiModel> list_json_sanphamnhaphanphoi { get; set; }
 
     }
 }

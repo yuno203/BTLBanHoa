@@ -25,6 +25,18 @@ namespace BusinessLogicLayer
         {
             return _res.Update1(model);
         }
+        public bool Update(SanPhamModel model)
+        {
+            return _res.Update(model);
+        }
+        public bool Delete(string id)
+        {
+            return _res.Delete(id);
+        }
+        //public bool Deletes(string id)
+        //{
+        //    return _res.Deletes(id);
+        //}
         public List<SanPhamModel> Search(int pageIndex, int pageSize, out long total, string tenSanPham, int gia, int soluong)
         {
             return _res.Search(pageIndex, pageSize, out total, tenSanPham, gia, soluong);

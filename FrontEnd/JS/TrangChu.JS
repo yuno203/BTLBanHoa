@@ -33,3 +33,24 @@ function openCloseDropdown(event){
     }
     
 }
+
+//Thêm mới
+function OpenAddsp(){
+    $('.add-sp').css({'transform':'scaleY(1)'});
+}
+//thoat
+function exit(){
+    $('.add-sp').css({'transform':'scaleY(0)'});
+}
+
+
+
+//lam moi
+function NhapMoi() {
+    document.getElementById('TenSP').value = '';
+    document.getElementById('GiaSP').value = '';
+    document.getElementById('SlSP').value = '';
+}
+
+
+

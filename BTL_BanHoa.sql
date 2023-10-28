@@ -72,21 +72,21 @@ CREATE TABLE dbo.SanPhams_NhaPhanPhois(
     MaSanPham int NOT NULL,
     MaNhaPhanPhoi int NOT NULL,
     PRIMARY KEY (MaNhaPhanPhoi, MaSanPham),
-    FOREIGN KEY (MaSanPham) REFERENCES dbo.SanPhams(MaSanPham),
-    FOREIGN KEY (MaNhaPhanPhoi) REFERENCES dbo.NhaPhanPhois(MaNhaPhanPhoi)
+    FOREIGN KEY (MaSanPham) REFERENCES dbo.SanPhams(MaSanPham) ON DELETE CASCADE ON UPDATE CASCADE   ,
+    FOREIGN KEY (MaNhaPhanPhoi) REFERENCES dbo.NhaPhanPhois(MaNhaPhanPhoi) ON DELETE CASCADE ON UPDATE CASCADE   
 );
 
 
 go
-CREATE TABLE dbo.ChiTietHoaDons(
-    MaChiTietHoaDon int IDENTITY(1,1) NOT NULL PRIMARY KEY,
-    MaHoaDon int,
-    MaSanPham int,
-    SoLuong int,
-    DonGia decimal(18, 0),
-    FOREIGN KEY (MaHoaDon) REFERENCES dbo.HoaDons(MaHoaDon) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (MaSanPham) REFERENCES dbo.SanPhams(MaSanPham) ON DELETE CASCADE ON UPDATE CASCADE
-);
+	CREATE TABLE dbo.ChiTietHoaDons(
+		MaChiTietHoaDon int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+		MaHoaDon int,
+		MaSanPham int,
+		SoLuong int,
+		DonGia decimal(18, 0),
+		FOREIGN KEY (MaHoaDon) REFERENCES dbo.HoaDons(MaHoaDon) ON DELETE CASCADE ON UPDATE CASCADE,
+		FOREIGN KEY (MaSanPham) REFERENCES dbo.SanPhams(MaSanPham) ON DELETE CASCADE ON UPDATE CASCADE
+	);
 
 go
 CREATE TABLE dbo.TaiKhoans(
@@ -245,9 +245,9 @@ go
 	-- Thêm chi tiết sản phẩm
 INSERT INTO dbo.ChiTietSanPhams (MaSanPham, MaNhaSanXuat, MoTa, ChiTiet)
 VALUES
-    (2, 1, N'Mô tả sản phẩm 1', N'Chi tiết sản phẩm 1'),
     (2, 2, N'Mô tả sản phẩm 2', N'Chi tiết sản phẩm 2'),
-    (3, 1, N'Mô tả sản phẩm 3', N'Chi tiết sản phẩm 3'),
+    (3, 11, N'Mô tả sản phẩm 1', N'Chi tiết sản phẩm 1'),
+    (2, , N'Mô tả sản phẩm 3', N'Chi tiết sản phẩm 3'),
     (4, 3, N'Mô tả sản phẩm 4', N'Chi tiết sản phẩm 4'),
     (5, 2, N'Mô tả sản phẩm 5', N'Chi tiết sản phẩm 5');
 go

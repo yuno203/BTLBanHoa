@@ -1,0 +1,68 @@
+*{
+    text-decoration: none;
+    list-style-type: none;
+    margin: 0;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+#container{
+    width: 100%;
+}
+#container .ndtrai{
+    background-color: #696969;
+    width: 18%;
+    float: left;
+}
+#container .ndtrai div{
+    width: 100%;
+    float: left;
+}
+#container .ndtrai .div1 img ,.div2 img {
+    float: left;
+    width: 40%;
+    margin-top: 15px;
+}
+#container .ndtrai .div1 p ,.div2 p{
+    float: left;
+    width: 60%;
+    margin-top: 20px;
+    text-align: center;
+    color: #ffffff;
+}
+.noidung{
+    min-height: 600px;
+}
+.noidung .home:hover, .sanpham:hover,.donhang:hover,.khachhang:hover
+,.thongke:hover,.capnhat:hover,.taikhoan:hover{
+   background-color: #292929;
+}
+.noidung .home>li, .sanpham>li,.donhang>li,.khachhang>li
+,.thongke>li,.capnhat>li,.taikhoan>li{
+    margin-top: 20px;
+    line-height: 40px;
+    width: 100%;
+}
+.noidung .sanpham_con,.donhang_con,.khachhang_con
+,.thongke_con,.capnhat_con,.taikhoan_con{
+    background-color: #494949;
+    margin-top: -15px;
+    color: #ffffff;
+    display: none;
+}
+.noidung .sanpham_con li,.donhang_con li,.khachhang_con li
+,.thongke_con li,.capnhat_con li,.taikhoan_con li{
+    line-height: 30px;
+    height: 40px;  
+}
+.noidung .sanpham_con li a,.donhang_con li a,.khachhang_con li a
+,.thongke_con li a,.capnhat_con li a,.taikhoan_con li a{
+    color: beige;
+    font-size: 14px;
+}
+.ndphai .tieude{
+    height: 40px;
+    background-color: #696969;
+}
+.ndphai .tieude .search{
+    height: 100%;
+    float: right;
+}

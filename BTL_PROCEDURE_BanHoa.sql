@@ -18,7 +18,7 @@ end
 go
 --cập nhật thông tin khách hàng
 create PROCEDURE update_khachhang(
-	@KhachHangID int ,
+	@KhachHangID int ,H
 	@TenKhachHang Varchar(255),
 	@Email nvarchar(255),
 	@DiaChi nvarchar(255)
@@ -96,7 +96,7 @@ End;
 
 -- Thong Ke khachHang
 go
-create PROCEDURE [dbo].[sp_thong_ke_khach] (@page_index  INT, 
+alter PROCEDURE [dbo].[sp_thong_ke_khach] (@page_index  INT, 
                                        @page_size   INT,
 									   @ten_khach Nvarchar(50),
 									   @fr_NgayTao datetime, 
@@ -117,6 +117,7 @@ AS
 							  h.NgayTao,
 							  h.TenKH,
 							  h.Diachi
+							 
                         INTO #Results1
                         FROM HoaDons  h
 						inner join ChiTietHoaDons c on c.MaHoaDon = h.MaHoaDon
@@ -152,6 +153,7 @@ AS
 							  h.NgayTao,
 							  h.TenKH,
 							  h.Diachi
+						
                         INTO #Results2
                         FROM HoaDons  h
 						inner join ChiTietHoaDons c on c.MaHoaDon = h.MaHoaDon
@@ -541,6 +543,16 @@ AS
 
 GO
 ----------- SẢN PHẨM -------------------
+--get san pham
+alter PROCEDURE sp_SanPham_get_by_id(
+	@MaSanPham int 
+)
+as
+Begin
+	SELECT * FROM SanPhams WHERE MaSanPham = @MaSanPham;
+end
+
+go
 
 alter PROCEDURE [dbo].[sp_SanPham_create]
 (
@@ -689,12 +701,161 @@ AS
     END;
 
 
+
+
+
+
+go
+
+alter PROCEDURE [dbo].[update_SanPhamWithChiTiet]
+(@MaSanPham int,
+ @MaChuyenMuc int,
+ @TenSanPham nvarchar(150),
+ @AnhDaiDien nvarchar(350),
+ @Gia decimal(18, 0),
+ @GiaGiam decimal(18, 0),
+ @SoLuong int,
+ @TrangThai bit,
+ @LuotXem int,
+ @DacBiet bit,
+ @list_json_chitietsanpham NVARCHAR(MAX))
+AS
+BEGIN
+    -- Cập nhật thông tin sản phẩm
+    UPDATE SanPhams
+    SET
+        MaChuyenMuc = @MaChuyenMuc, 
+        TenSanPham = @TenSanPham, 
+        AnhDaiDien = @AnhDaiDien,
+        Gia = @Gia,
+        GiaGiam = @GiaGiam,
+        SoLuong = @SoLuong,
+        TrangThai = @TrangThai,
+        LuotXem = @LuotXem,
+        DacBiet = @DacBiet
+    WHERE MaSanPham = @MaSanPham;
+
+    -- Xóa các chi tiết sản phẩm liên quan
+    DELETE FROM ChiTietSanPhams
+    WHERE MaSanPham = @MaSanPham;
+
+    -- Nếu có chi tiết sản phẩm mới
+    IF (@list_json_chitietsanpham IS NOT NULL) 
+    BEGIN
+        -- Insert data to temp table 
+        SELECT
+            JSON_VALUE(p.value, '$.maNhaSanXuat') as MaNhaSanXuat,
+            JSON_VALUE(p.value, '$.moTa') as MoTa,
+            JSON_VALUE(p.value, '$.chiTiet') as ChiTiet
+        INTO #Results 
+        FROM OPENJSON(@list_json_chitietsanpham) AS p;
+
+        -- Insert chi tiết sản phẩm mới
+        INSERT INTO ChiTietSanPhams (MaSanPham, MaNhaSanXuat, MoTa, ChiTiet)
+        SELECT
+            @MaSanPham,
+            #Results.MaNhaSanXuat,
+            #Results.MoTa,
+            #Results.ChiTiet
+        FROM #Results;
+
+        -- Xóa bảng tạm
+        DROP TABLE #Results;
+    END;
+END;
+
+go
+
+
+
+
+--xoa san pham
+alter PROCEDURE [dbo].[delete_SanPhamWithChiTiet]
+(@MaSanPham int)
+AS
+BEGIN
+    -- Xóa chi tiết sản phẩm liên quan
+    DELETE FROM ChiTietSanPhams
+    WHERE MaSanPham = @MaSanPham;
+
+    -- Xóa sản phẩm
+    DELETE FROM SanPhams
+    WHERE MaSanPham = @MaSanPham;
+END;
+exec [delete_SanPhamWithChiTiet] 9
+
+go
+
+
+
+
+--- xoa nhieu
+--ALTER PROCEDURE [dbo].[DeleteMultipleProducts]
+--    @MaSanPham NVARCHAR(MAX)
+--AS
+--BEGIN
+--    DECLARE @Sql NVARCHAR(MAX)
+
+--    -- Tạo câu lệnh SQL để xóa sản phẩm và chi tiết sản phẩm liên quan
+--    SET @Sql = N'DELETE FROM ChiTietSanPhams WHERE MaSanPham IN (' + @MaSanPham + N');
+--                 DELETE FROM SanPhams WHERE MaSanPham IN (' + @MaSanPham + N');'
+
+--    -- Thực hiện câu lệnh SQL
+--    EXEC sp_executesql @Sql
+--END;
+
+go
+ALTER PROCEDURE [dbo].[DeleteMultipleProducts]
+    @MaSanPham NVARCHAR(MAX)
+AS
+BEGIN
+    -- Chuyển danh sách mã sản phẩm từ chuỗi thành bảng tạm
+    DECLARE @SanPhamIds TABLE (MaSanPham INT)
+    INSERT INTO @SanPhamIds
+    SELECT value FROM STRING_SPLIT(@MaSanPham, ',')
+
+    -- Xóa chi tiết sản phẩm liên quan
+    DELETE FROM ChiTietSanPhams
+    WHERE MaSanPham IN (SELECT MaSanPham FROM @SanPhamIds)
+
+    -- Xóa sản phẩm
+    DELETE FROM SanPhams
+    WHERE MaSanPham IN (SELECT MaSanPham FROM @SanPhamIds)
+END;
+
+
+
+
+
+go
+alter PROCEDURE BanChay
+AS
+BEGIN
+    SELECT TOP 5 -- Số lượng sản phẩm bán chạy bạn muốn lấy
+        SP.MaSanPham,
+        SP.TenSanPham,
+        SP.AnhDaiDien,
+        SP.Gia,
+        SP.GiaGiam,
+        SP.SoLuong,
+        SP.TrangThai,
+        SP.LuotXem,
+        SP.DacBiet
+    FROM SanPhams SP
+    INNER JOIN ChiTietHoaDons CTHD ON SP.MaSanPham = CTHD.MaSanPham
+    GROUP BY SP.MaSanPham, SP.TenSanPham, SP.AnhDaiDien, SP.Gia, SP.GiaGiam, SP.SoLuong, SP.TrangThai, SP.LuotXem, SP.DacBiet
+    ORDER BY SUM(CTHD.SoLuong) DESC; -- Sắp xếp theo số lượng bán giảm dần
+END;
+
+
+
 --tim kiem san pham
 go
-create PROCEDURE [dbo].[sp_SanPham_search] (@page_index  INT, 
+alter PROCEDURE [dbo].[sp_SanPham_search] (@page_index  INT, 
                                        @page_size   INT,
-									   @tenSanPham Nvarchar(50)
-									  
+									   @tenSanPham Nvarchar(50),
+									   @gia decimal(18, 0),
+									   @SoLuong int
 									  
 									   )
 AS
@@ -705,7 +866,12 @@ AS
 						SET NOCOUNT ON;
                         SELECT(ROW_NUMBER() OVER(
                               ORDER BY TenSanPham ASC)) AS RowNumber, 
-                              h.TenSanPham
+							  h.MaSanPham,
+                              h.TenSanPham,
+							  h.Gia,
+							  h.SoLuong,
+							  h.MaChuyenMuc,
+							   h.AnhDaiDien
                         INTO #Results1
                         FROM SanPhams AS h
 					    WHERE  (@tenSanPham = '' Or h.TenSanPham like N'%'+@tenSanPham+'%') 
@@ -724,7 +890,12 @@ AS
 						SET NOCOUNT ON;
                         SELECT(ROW_NUMBER() OVER(
                               ORDER BY TenSanPham ASC)) AS RowNumber, 
-                              h.TenSanPham
+							  h.MaSanPham,
+                              h.TenSanPham,
+							  h.Gia,
+							  h.SoLuong,
+							  h.MaChuyenMuc,
+							   h.AnhDaiDien
                         INTO #Results2
                         FROM SanPhams AS h
 					     WHERE  (@tenSanPham = '' Or h.TenSanPham like N'%'+@tenSanPham+'%') ;              
@@ -739,15 +910,35 @@ End;
 
 go
 -- Them xoa sua hien thi tim kiem CHUYEN MUC
-create PROCEDURE sp_chuyenmuc_get_by_id(
-	@ID int 
+alter PROCEDURE sp_chuyenmuc_get_by_id(
+	@MaChuyenMuc int 
 )
 as
 Begin
-	SELECT * FROM ChuyenMucs WHERE MaChuyenMuc = @ID;
+	SELECT * FROM ChuyenMucs WHERE MaChuyenMuc = @MaChuyenMuc;
+end
+go
+create PROCEDURE sp_item_all
+as
+Begin
+	SELECT ChuyenMucs.MaChuyenMuc,
+	ChuyenMucs.MaChuyenMucCha,
+	ChuyenMucs.TenChuyenMuc,
+	ChuyenMucs.NoiDung,
+	ChuyenMucs.DacBiet
+	FROM ChuyenMucs 
 end
 
-go
+--create PROCEDURE [dbo].[sp_item_all]
+--AS
+--    BEGIN
+--        SELECT item.item_id, 
+--               item.item_group_id, 
+--               item.item_image, 
+--			   item.item_name, 
+--			   item.item_price                         
+--        FROM item 
+--    END;
 --tao chuyen muc
 
 create PROCEDURE [dbo].[create_ChuyenMuc](
@@ -763,7 +954,11 @@ BEGIN
 	values(@MaChuyenMucCha,@TenChuyenMuc,@DacBiet,@NoiDung)
 END
 go
---cập nhật thông tin khách hàng
+
+
+
+
+--cập nhật thông tin chuyen muc
 create PROCEDURE update_ChuyenMuc(
 	 @MaChuyenMuc int,
 	@MaChuyenMucCha int,
@@ -778,7 +973,7 @@ Begin
 	where MaChuyenMuc =@MaChuyenMuc
 end
 
---Xoa thong tin khach hang theo id
+--Xoa thong tinchuye3n muc
 go
 create PROCEDURE delete_ChuyenMuc(
 	@MaChuyenMuc int
@@ -789,7 +984,7 @@ Begin
 end
 select*from KhachHangs
 
---Tim kiem thong tin khach hang
+--Tim kiem thong tin chuyen muc
 go
 create PROCEDURE [dbo].[sp_ChuyenMuc_search1] (@page_index  INT, 
                                        @page_size   INT,
@@ -843,7 +1038,7 @@ End;
 
 
 
-
+select*from TaiKhoans
 
 
 

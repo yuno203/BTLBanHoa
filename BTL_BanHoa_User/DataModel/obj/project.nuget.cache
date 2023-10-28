@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "C63/tZOfk5VVNt4FkPG85h7n7xoKOE9ncRiHhQakUqu5kszphw44/CxFjSgt1QNlkLSnvNDVVwuJf7yCWRIfTg==",
+  "dgSpecHash": "q3O67Dpo+zZTpPsgE8OjiPUhsxxU9XHRRJQUxfwMia2WJsZm5BpGyciRVqw/WqRwDJMkydHUUeuAamOiRh+n9w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Gia Bao\\Desktop\\BTLBanHoa\\BTL_BanHoa_Admin\\DataModel\\DataModel.csproj",
+  "projectFilePath": "C:\\Users\\Gia Bao\\Desktop\\BTLBanHoa\\BTL_BanHoa_User\\DataModel\\DataModel.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

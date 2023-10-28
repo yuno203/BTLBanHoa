@@ -34,18 +34,18 @@ namespace DataAccessLayer
             try
             {
                 var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "sp_SanPham_create",
-                "@MaSanPham", model.MaSanPham,
+
                 "@MaChuyenMuc", model.MaChuyenMuc,
                 "@TenSanPham", model.TenSanPham,
                 "@AnhDaiDien", model.AnhDaiDien,
                 "@Gia", model.Gia,
-                "@GiaGiam", model.GiaGiam,
+                "@GiaGiam", model.GiaGiam, 
                 "@SoLuong", model.SoLuong,
                 "@TrangThai", model.TrangThai,
                 "@LuotXem", model.LuotXem,
                 "@DacBiet", model.DacBiet,
-                "@list_json_chitietsanpham", model.list_json_chitietsanpham != null ? MessageConvert.SerializeObject(model.list_json_chitietsanpham) : null,
-                "@list_json_sanphamnhaphanphoi", model.list_json_sanphamnhaphanphoi != null ? MessageConvert.SerializeObject(model.list_json_sanphamnhaphanphoi) : null);
+                "@list_json_chitietsanpham", model.list_json_chitietsanpham != null ? MessageConvert.SerializeObject(model.list_json_chitietsanpham) : null);
+                //"@list_json_sanphamnhaphanphoi", model.list_json_sanphamnhaphanphoi != null ? MessageConvert.SerializeObject(model.list_json_sanphamnhaphanphoi) : null);
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
                 {
                     throw new Exception(Convert.ToString(result) + msgError);
@@ -93,7 +93,7 @@ namespace DataAccessLayer
                     "@tensanpham", tenSanPham,
                     "@gia",gia,
                     "@soluong",soluong
-                   
+                  
                     //"@Email",Email,
                     //"@SDT",SDT,
                     //"@DiaChiGiaoHang", DiaChiGiaoHang
@@ -125,8 +125,73 @@ namespace DataAccessLayer
                 "@TrangThai", model.TrangThai,
                 "@LuotXem", model.LuotXem,
                 "@DacBiet", model.DacBiet,
-                "@list_json_chitietsanpham", model.list_json_chitietsanpham != null ? MessageConvert.SerializeObject(model.list_json_chitietsanpham) : null,
-                "@list_json_sanphamnhaphanphoi", model.list_json_sanphamnhaphanphoi != null ? MessageConvert.SerializeObject(model.list_json_sanphamnhaphanphoi) : null);
+                "@list_json_chitietsanpham", model.list_json_chitietsanpham != null ? MessageConvert.SerializeObject(model.list_json_chitietsanpham) : null);
+                //"@list_json_sanphamnhaphanphoi", model.list_json_sanphamnhaphanphoi != null ? MessageConvert.SerializeObject(model.list_json_sanphamnhaphanphoi) : null);
+                if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(Convert.ToString(result) + msgError);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public bool Delete(string id)
+        {
+            string msgError = "";
+            try
+            {
+                var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "DeleteMultipleProducts",
+                "@MaSanPham", id);
+                if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(Convert.ToString(result) + msgError);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        //public bool Deletes(string id)
+        //{
+        //    string msgErrors = "";
+        //    try
+        //    {
+        //        var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgErrors, "DeleteMultipleProducts",
+        //        "@MaSanPhams", id);
+        //        if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgErrors))
+        //        {
+        //            throw new Exception(Convert.ToString(result) + msgErrors);
+        //        }
+        //        return true;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
+        public bool Update(SanPhamModel model)
+        {
+            string msgError = "";
+            try
+            {
+                var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "update_SanPhamWithChiTiet",
+                "@MaSanPham", model.MaSanPham,
+                "@MaChuyenMuc", model.MaChuyenMuc,
+                "@TenSanPham", model.TenSanPham,
+                "@AnhDaiDien", model.AnhDaiDien,
+                "@Gia", model.Gia,
+                "@GiaGiam", model.GiaGiam,
+                "@SoLuong", model.SoLuong,
+                "@TrangThai", model.TrangThai,
+                "@LuotXem", model.LuotXem,
+                "@DacBiet", model.DacBiet,
+                "@list_json_chitietsanpham", model.list_json_chitietsanpham != null ? MessageConvert.SerializeObject(model.list_json_chitietsanpham) : null);
+                //"@list_json_sanphamnhaphanphoi", model.list_json_sanphamnhaphanphoi != null ? MessageConvert.SerializeObject(model.list_json_sanphamnhaphanphoi) : null);
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
                 {
                     throw new Exception(Convert.ToString(result) + msgError);
