@@ -41,71 +41,7 @@ namespace DataAccessLayer
                 throw ex;
             }
         }
-        public bool Create(ChuyenMucModel model)
-        {
-            string msgError = "";
-            try
-            {
-                var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "create_ChuyenMuc",
-                "@MaChuyenMucCha", model.MaChuyenMucCha,
-                "@TenChuyenMuc", model.TenChuyenMuc,
-                "@DacBiet", model.DacBiet,
-                "@NoiDung", model.NoiDung
-                
-                );
-                if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
-                {
-                    throw new Exception(Convert.ToString(result) + msgError);
-                }
-                return true;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-        public bool Update(ChuyenMucModel model)
-        {
-            string msgError = "";
-            try
-            {
-                var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "update_ChuyenMuc",
-                "@MaChuyenMuc", model.MaChuyenMuc,
-                "@MaChuyenMucCha", model.MaChuyenMucCha,
-                "@TenChuyenMuc", model.TenChuyenMuc,
-                "@DacBiet", model.DacBiet,
-                "@NoiDung", model.NoiDung
-                );
-                if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
-                {
-                    throw new Exception(Convert.ToString(result) + msgError);
-                }
-                return true;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public bool Delete(string id)
-        {
-            string msgError = "";
-            try
-            {
-                var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "delete_ChuyenMuc",
-                "@MaChuyenMuc", id);
-                if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
-                {
-                    throw new Exception(Convert.ToString(result) + msgError);
-                }
-                return true;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+       
 
         public List<ChuyenMucModel> Search(int pageIndex, int pageSize, out long total, string ten_ChuyenMuc)
         {

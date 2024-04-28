@@ -27,6 +27,47 @@ namespace DataAccessLayer
                 throw ex;
             }
         }
+
+            public List<HoaDonAll> GetDatabyI1D(string id)
+            {
+                string msgError = "";
+                try
+                {
+                    var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_getbyidchitiethoadon",
+                        "@MaHoaDon", id);
+                    if (!string.IsNullOrEmpty(msgError))
+                        throw new Exception(msgError);
+
+                // Chuyển đổi DataTable thành danh sách HoaDonAll
+                    if (id != "") ;
+                    return dt.ConvertTo<HoaDonAll>().ToList();
+
+                    
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+        
+
+
+        //public HoaDonAll GetDatabyI1D(string id)
+        //{
+        //    string msgError = "";
+        //    try
+        //    {
+        //        var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_getbyidchitiethoadon",
+        //             "@MaHoaDon", id);
+        //        if (!string.IsNullOrEmpty(msgError))
+        //            throw new Exception(msgError);
+        //        return dt.ConvertTo<HoaDonAll>().FirstOrDefault();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
         public bool Create(HoaDonModel model)
         {
             string msgError = "";
@@ -54,6 +95,27 @@ namespace DataAccessLayer
                 throw ex;
             }
         }
+        public bool CreateCT(ChiTietHoaDonModel model)
+        {
+            string msgError = "";
+            try
+            {
+                var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "ThemChiTietHoaDon",
+                "@MaHoaDon", model.MaHoaDon,
+                "@MaSanPham", model.MaSanPham,
+                "@SoLuong", model.SoLuong,
+                "@DonGia", model.DonGia);
+                if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(Convert.ToString(result) + msgError);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         //public bool Update(HoaDonModel model)
         //{
         //    string msgError = "";
@@ -65,7 +127,7 @@ namespace DataAccessLayer
         //        "@DiaChi", model.Diachi,
         //        "@trangthai", model.trangthai,
         //        "@listjson_chitiet", model.list_json_chitiethoadon != null ? MessageConvert.SerializeObject(model.list_json_chitiethoadon) : null);
-                
+
         //        if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
         //        {
         //            throw new Exception(Convert.ToString(result) + msgError);
@@ -122,6 +184,52 @@ namespace DataAccessLayer
                 "@SDT", model.SDT,
                 "@DiaChiGiaoHang", model.DiaChiGiaoHang,
                 "@list_json_chitiethoadon", model.list_json_chitiethoadon != null ? MessageConvert.SerializeObject(model.list_json_chitiethoadon) : null);
+                if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(Convert.ToString(result) + msgError);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public bool Update(HoaDonModel model)
+        {
+            string msgError = "";
+            try
+            {
+                var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "update_HoadonWithChiTiet",
+                "@MaHoaDon", model.MaHoaDon,
+                "@TenKH", model.TenKH,
+                "@DiaChi", model.Diachi,
+                "@trangthai", model.trangthai,
+                "@NgayTao", model.NgayTao,
+                "@NgayDuyet", model.NgayDuyet,
+                "@TongGia", model.TongGia,
+                "@Email", model.Email,
+                "@SDT", model.SDT,
+                "@DiaChiGiaoHang", model.DiaChiGiaoHang,
+                "@list_json_chitiethoadon", model.list_json_chitiethoadon != null ? MessageConvert.SerializeObject(model.list_json_chitiethoadon) : null);
+                if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(Convert.ToString(result) + msgError);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public bool Delete(string id)
+        {
+            string msgError = "";
+            try
+            {
+                var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "delete_hoadonWithChiTiet",
+                "@MaHoaDon", id);
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
                 {
                     throw new Exception(Convert.ToString(result) + msgError);

@@ -6,10 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Don Hang</title>
     <link rel="stylesheet" href="../css/donhang.css">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <script src="../link/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../link/user_dathang.js"></script>
+    <script src="../link/global.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-route.min.js"></script>
     </script>
 </head>
-<body>
+<body ng-app="AppBanHang" ng-controller="DatHangCtrl">
     <div id="container">
         <header>
             <div class="dropdown" style="float: left;padding: 10px;">
@@ -190,30 +196,30 @@
                         <div>
                           
                             <label for=""><span class="red">*</span> Họ và tên:</label>
-                            <input type="text" spellcheck="false" name="" id="tro" onkeyup="checkht()">
+                            <input type="text" ng-model="TenKH" spellcheck="false" name="" id="tro" >
                             <span  class="tttrave" id="tttrave"></span>
                            
                         </div>
                         <div>
                             <label for=""><span class="red">*</span> Điện thoại:</label>
-                        <input type="number" name="" spellcheck="false" id="trosdt" onkeyup="checksdt()">
+                        <input type="text" ng-model="SDT" name="" spellcheck="false" id="trosdt" >
                         <span  class="tttrave" id="tttravesdt"></span>
                         </div>
                        <div>
                         <label for=""><span class="red">*</span>Email của bạn:</label>
-                        <input type="text" spellcheck="false" name="" id="troemail" onkeyup="checkemail()">
+                        <input type="text" ng-model="Email" spellcheck="false" name="" id="troemail" >
                         <span  class="tttrave" id="tttraveemail"></span>
                        </div>
                        <div>
-                        <label for="">Địa chỉ:</label>
-                        <input type="text" name="" id="">
+                        <label for=""><span class="red">*</span>Địa chỉ :</label>
+                        <input type="text"ng-model="DiaChi" name="" id="">
                        </div>
-                       <div>
+                       <!-- <div>
                         <input type="checkbox"> <label for="">Giấu tên người gửi?</label>
-                       </div>     
+                       </div>      -->
                     </div>
                     <div class="thongtinmua">
-                        <div>
+                        <!-- <div>
                             <h3>Thông tin người nhận</h3>
                             
                         </div>
@@ -223,21 +229,21 @@
                         </div>
                         <div>
                             <label for=""><span class="red">*</span>Tên người nhận:</label>
-                        <input type="text" name="" id="tro">
+                        <input type="text" name="" ng-model="TenK_H" id="tro">
                         <div style="display: none;" class="tttrave">Please enter your full name</div>
                         </div>
                         <div>
                             <label for=""><span class="red">*</span> Điện thoại:</label>
-                        <input type="number" name="" id="tro">
+                        <input type="number" ng-model="S_DT" name="" id="tro">
                         <div style="display: none;" class="tttrave">Please enter your phone number</div>
-                        </div>
+                        </div> -->
                       
                        <div>
-                        <label for=""><span class="red">*</span>Địa chỉ:</label>
-                        <input type="text" name="" id="">
+                        <label for=""><span class="red">*</span>Địa chỉ nhận :</label>
+                        <input type="text"ng-model="Diachigiaohang" name="" id="">
                         <div style="display: none;" class="tttrave">Nhập địa chỉ người nhận</div>
                        </div>
-                       <div>
+                       <!-- <div>
                             <label for=""><span class="red">*</span>Tỉnh/Thành phố:</label>
                             <div class="tinh">
                                 <select name="" id="">
@@ -353,7 +359,7 @@
                                 <option value="">24h </option>
                             </select>
                            </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="thongtinmua">
                         <div>
@@ -395,30 +401,23 @@
                         </div>
                         <div>
                             <div class="datmua">
-                                <a href=""><button onclick="send()">Đặt mua</button></a>
+                                <a href=""><button  ng-click="DatHang()">Đặt mua</button></a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="thongtinphai">
-                    <div class="mathang">
-                        <img src="../anhhoa/hoa5.png" alt="">
+                    <div class="mathang" >
+                        <!-- <img src="{{Order.anhDaiDien}}" alt="">
                         <div class="tttritiet">
                             <a style="color: #bd2026;" href="">Hoa hồng</a>
                             <p style="padding: 10px 0px 10px;">
-                                <span>1 x 700.000 đ</span>
+                                Số lượng : 
+                            <span>{{Order.gia}}đ</span>
                             </p>
-                        </div>
+                        </div> -->
                     </div>
-                    <div class="mathang">
-                        <img src="../anhhoa/hoa4.png" alt="">
-                        <div class="tttritiet">
-                            <a style="color: #bd2026;" href="">Hoa hồng</a>
-                            <p style="padding: 10px 0px 10px;">
-                                <span>1 x 900.000 đ</span>
-                            </p>
-                        </div>
-                    </div>
+                   
                     <div class="tong">
                         <div class="tamtinh">
                             <span>Tạm tính : </span>
@@ -434,7 +433,7 @@
                         </div>
                         <div class="VAT">
                             <span>Hóa đơn VAT : </span>
-                            <strong>123.456</strong>
+                            <strong>10%</strong>
                         </div>
                         <div style="width: 100%;height: 0.5px;background-color: #e1e1e1;">
     

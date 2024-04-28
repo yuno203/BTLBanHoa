@@ -107,7 +107,7 @@ namespace API_Hoa.Controllers
         public IActionResult DeleteKhachhang([FromBody] Dictionary<string, object> formData)
         {
             string ID = "";
-            if (formData.Keys.Contains("ID") && !string.IsNullOrEmpty(Convert.ToString(formData["ID"]))) { ID = Convert.ToString(formData["ID"]); }
+            if (formData.Keys.Contains("Id") && !string.IsNullOrEmpty(Convert.ToString(formData["Id"]))) { ID = Convert.ToString(formData["Id"]); }
             _khachBusiness.Delete(ID);
             return Ok();
         }

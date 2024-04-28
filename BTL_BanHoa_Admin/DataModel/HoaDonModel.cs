@@ -16,6 +16,18 @@
         public string DiaChiGiaoHang { get; set; }
 
         public List<ChiTietHoaDonModel> list_json_chitiethoadon { get; set; }
+       
 
+    }
+
+    public class HoaDonAll
+    {
+        public int MaHoaDon { get; set; }
+        public int MaChiTietHoaDon { get; set; }
+        public int MaSanPham { get; set; }
+        public int SoLuong { get; set; }
+        public decimal DonGia { get; set; }
+        public string TenSanPham { get; set; }
+        public string AnhDaiDien { get; set; }
     }
 }

@@ -31,7 +31,7 @@ namespace DataAccessLayer
             string msgError = "";
             try
             {
-                var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "create_khachhang",
+                var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "InsertKhachHang",
                 "@TenKH", model.TenKH,
                 "@GioiTinh", model.GioiTinh,
                 "@DiaChi", model.DiaChi,
@@ -80,7 +80,7 @@ namespace DataAccessLayer
             try
             {
                 var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "delete_khachhang",
-                "@ID", id);
+                "@Id", id);
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
                 {
                     throw new Exception(Convert.ToString(result) + msgError);

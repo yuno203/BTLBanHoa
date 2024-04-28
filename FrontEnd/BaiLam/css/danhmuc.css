@@ -295,6 +295,11 @@ list-style: none;
     width: 45%;
 }
 #content .noidung .ndtrai .mucgia button{
+    padding: 2%;
+    border-radius: 6px;
+    border: 1px solid #0d5cb6;
+}
+#content .noidung .ndtrai .mucgia .btn1{
     padding: 6px;
     width: 40%;
     border: 1px solid #0d5cb6;

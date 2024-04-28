@@ -20,7 +20,31 @@ namespace Api.BanHang.Controllers
         {
             return _hoadonnhapBusiness.GetDatabyID(id);
         }
+        [Route("getcthd-by-id/{id}")]
+        [HttpGet]
+        public IActionResult GetDatabyI1D(string id)
+        {
+            try
+            {
+                var result = _hoadonnhapBusiness.GetDatabyI1D(id);
 
+                if (result != null)
+                {
+                    // Trả về danh sách sản phẩm
+                    return Ok(result);
+                }
+                else
+                {
+                    // Trả về NotFound nếu không tìm thấy dữ liệu
+                    return NotFound();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi và trả về lỗi 500
+                return StatusCode(500, ex.Message);
+            }
+        }
 
         [Route("create-item")]
         [HttpPost]
@@ -77,6 +101,15 @@ namespace Api.BanHang.Controllers
         {
             _hoadonnhapBusiness.Update1(model);
             return model;
+        }
+        [Route("delete")]
+        [HttpPost]
+        public IActionResult DeleteKhachhang([FromBody] Dictionary<string, object> formData)
+        {
+            string ID = "";
+            if (formData.Keys.Contains("MaHoaDon") && !string.IsNullOrEmpty(Convert.ToString(formData["MaHoaDon"]))) { ID = Convert.ToString(formData["MaHoaDon"]); }
+            _hoadonnhapBusiness.Delete(ID);
+            return Ok();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BusinessLogicLayer;
+using BusinessLogicLayer.Interfaces;
 using DataModel;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,7 +11,7 @@ namespace Api.BanHang.Controllers
     public class HoaDonController : ControllerBase
     {
         private IHoaDonBusiness _hoadonBusiness;
-        public HoaDonController(IHoaDonBusiness khachBusiness) 
+        public HoaDonController(IHoaDonBusiness khachBusiness)
         {
             _hoadonBusiness = khachBusiness;
         }
@@ -20,8 +21,34 @@ namespace Api.BanHang.Controllers
         {
             return _hoadonBusiness.GetDatabyID(id);
         }
+        [Route("getcthd-by-id/{id}")]
+        [HttpGet]
+        public IActionResult GetDatabyI1D(string id)
+        {
+            try
+            {
+                var result = _hoadonBusiness.GetDatabyI1D(id);
 
-
+                if (result != null)
+                {
+                    // Trả về danh sách sản phẩm
+                    return Ok(result);
+                }
+                else
+                {
+                    // Trả về NotFound nếu không tìm thấy dữ liệu
+                    return NotFound();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi và trả về lỗi 500
+                return StatusCode(500, ex.Message);
+            }
+        }
+       
+       
+      
         [Route("create-item")]
         [HttpPost]
         public HoaDonModel Create([FromBody] HoaDonModel model)
@@ -65,11 +92,11 @@ namespace Api.BanHang.Controllers
                         // Xử lý trường hợp không thể chuyển đổi ngày tạo thành kiểu DateTime
                     }
                 }
-               
+
 
 
                 long total = 0;
-                var data = _hoadonBusiness.Search(page, pageSize,out total , ten_khach, diachi, trang_thai,ngayTao);
+                var data = _hoadonBusiness.Search(page, pageSize, out total, ten_khach, diachi, trang_thai, ngayTao);
                 return Ok(
                    new
                    {
@@ -92,6 +119,22 @@ namespace Api.BanHang.Controllers
         {
             _hoadonBusiness.Update1(model);
             return model;
+        }
+        [Route("update-item")]
+        [HttpPost]
+        public HoaDonModel Update([FromBody] HoaDonModel model)
+        {
+            _hoadonBusiness.Update(model);
+            return model;
+        }
+        [Route("delete")]
+        [HttpPost]
+        public IActionResult DeleteKhachhang([FromBody] Dictionary<string, object> formData)
+        {
+            string ID = "";
+            if (formData.Keys.Contains("MaHoaDon") && !string.IsNullOrEmpty(Convert.ToString(formData["MaHoaDon"]))) { ID = Convert.ToString(formData["MaHoaDon"]); }
+            _hoadonBusiness.Delete(ID);
+            return Ok();
         }
     }
 }

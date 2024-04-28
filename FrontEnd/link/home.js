@@ -2,6 +2,7 @@ var app = angular.module('AppBanHang', []);
 app.controller("HomeCtrl", function ($scope, $http) {
     $scope.listMenu;
 	$scope.listSanPham;
+    
     $scope.LoadMenu= function () {
         $http({
             method: 'GET',
@@ -10,20 +11,6 @@ app.controller("HomeCtrl", function ($scope, $http) {
             $scope.listMenu = response.data;  
         });
     };
-	 
-    // $scope.GetBanChay= function () {
-    //     $http({
-    //         method: 'POST',
-    //         data: { page: 1, pageSize: 10},
-    //         url: current_url + '/api/SanPham/search',
-    //     }).then(function (response) {  
-    //         $scope.listItem = response.data.data;  
-    //     });
-    // };
- 
-	//  $scope.GetBanChay();
-   
-    // $scope.host = current_img;
 
      $scope.MaSanPham;
      $scope.TenSanPham;
@@ -35,70 +22,81 @@ app.controller("HomeCtrl", function ($scope, $http) {
      $scope.MoTa;
      $scope.ChiTiet;
     
-   
-    //  $scope.items = [];
-      //$scope.page = 1;
-      //$scope.pageSize = 11;
-   
-     
-  
-      $scope.page = 1;
-      $scope.pageSize = 100; // Number of items per page
-      $scope.totalPages = 0; // Tổng số trang
-    $scope.paginatedItems = [];
+    $scope.begin = 0;
+    $scope.page = 1;
+    $scope.pageSize = 10; // Số lượng mục trên mỗi trang
+    $scope.pageCount;
+    $scope.prop ='gia';
 
-    // Hàm cập nhật trang
-    $scope.updatePage = function () {
-        var startIndex = ($scope.page - 1) * $scope.pageSize;
-        var endIndex = Math.min(startIndex + $scope.pageSize, $scope.listSanPham.length);
-        $scope.paginatedItems = $scope.listSanPham.slice(startIndex, endIndex);
-    };
+    $scope.repaginate = function()
+    {
+        $scope.begin = 0;
+        $scope.pageCount = Math.ceil($scope.listSanPham.length / $scope.pageSize);
+    }
+    $scope.sortBy = function(prop){
+        $scope.prop = prop;
+    }
 
-    // Hàm tính tổng số trang
-    $scope.calculateTotalPages = function () {
-        $scope.totalPages = Math.ceil($scope.listSanPham.length / $scope.pageSize);
-    };
-
-    // Hàm chuyển đến trang trước
-    $scope.prevPage = function () {
-        if ($scope.page > 1) {
-            $scope.page--;
-            $scope.updatePage();
-        }
-    };
-
-    // Hàm chuyển đến trang kế tiếp
-    $scope.nextPage = function () {
-        if ($scope.page < $scope.totalPages) {
-            $scope.page++;
-            $scope.updatePage();
-        }
-    };
-
-    // Hàm để lấy danh sách trang
-    $scope.getPages = function () {
-        var pages = [];
-        for (var i = 1; i <= $scope.totalPages; i++) {
-            pages.push(i);
-        }
-        return pages;
-    };
-
-    $scope.tenSanPham;
-    $scope.submit = "Thêm mới";
-    $scope.LoadSanPham = function () {
-        $http({
-            method: 'POST',
-            //headers: { "Authorization": 'Bearer ' + _user.token },
-            data: { page: $scope.page, pageSize: $scope.pageSize,tenSanPham: $scope.tenSanPham },
-            url: current_url + '/api/SanPham/search',
-        }).then(function (response) {
-            $scope.listSanPham = response.data.data;
-            console.log($scope.listSanPham)
-           
-        });
+    $scope.first = function(){
+        $scope.begin = 0;
         
+    }
+    $scope.Previous = function(){
+        if($scope.begin > 0){
+            $scope.begin -= $scope.pageSize;
+        }
+    }
+    $scope.next = function () {
+        $scope.begin = Math.min($scope.begin + $scope.pageSize, ($scope.pageCount - 1) * $scope.pageSize);
+    }
+    
+    $scope.last = function(){
+        $scope.begin = ($scope.pageCount -1 )* $scope.pageSize;
     };
+    
+   
+
+    $scope.PageIndex = function(total){
+      var liElements = document.querySelectorAll('.pageElement li');
+      liElements.forEach(function (li) {
+          li.remove();
+      });
+
+      var countPage = Math.ceil((total)/$scope.pageSize)
+      
+      for (let i = 1; i <= countPage; i++) {
+        var li = document.createElement('li')
+        li.className= 'page-item'
+        var a = document.createElement('a')
+        li.appendChild(a)
+        a.innerHTML = i
+        document.querySelector('.pageElement').appendChild(li)
+        li.onclick = function(){
+          $scope.changePage(i)
+        }
+      }
+    }
+
+    $scope.changePage = function(i){
+      $scope.page = i
+      $scope.LoadSanPham()
+    }
+   
+    $scope.submit = "Thêm mới";
+$scope.LoadSanPham = function () {
+    var token = localStorage.getItem('token');
+    
+    $http({
+        method: 'POST',
+        headers: { "Authorization": 'Bearer ' + token },
+        data: { page: $scope.page, pageSize: $scope.pageSize, tenSanPham: $scope.tenSanPham },
+        url: current_url + '/api/SanPham/search',
+    }).then(function (response) {
+        $scope.listSanPham = response.data.data;
+        console.log($scope.listSanPham);
+    });
+};
+  
     $scope.$watch('tenSanPham', function () {
         $scope.LoadSanPham();
     });
@@ -240,7 +238,12 @@ app.controller("HomeCtrl", function ($scope, $http) {
             }
         }
     };
+   
+   
     
+
+
+
     $scope.Sua = function (MaSanPham) {
         $scope.submit = "Cập nhật";
         $http({
@@ -259,7 +262,6 @@ app.controller("HomeCtrl", function ($scope, $http) {
            
         });
      };
-  
 
     $scope.XoaSanPham = function (MaSanPham) {
         var result = confirm("Bạn có thực sự muốn xóa sản phẩm này không?");
@@ -311,8 +313,12 @@ app.controller("HomeCtrl", function ($scope, $http) {
         }
     };
     
+
+
+
     
     $scope.LoadDanhMuc();
     $scope.LoadSanPham();
+    
 });
 

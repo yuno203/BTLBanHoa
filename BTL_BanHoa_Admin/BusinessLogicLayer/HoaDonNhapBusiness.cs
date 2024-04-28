@@ -16,7 +16,10 @@ namespace BusinessLogicLayer
         {
             return _res.GetDatabyID(id);
         }
-
+        public List<HoaDonNhapAll> GetDatabyI1D(string id)
+        {
+            return _res.GetDatabyI1D(id);
+        }
         public bool Create(HoaDonNhapModel model)
         {
             return _res.Create(model);
@@ -28,6 +31,10 @@ namespace BusinessLogicLayer
         public bool Update1(HoaDonNhapModel model)
         {
             return _res.Update1(model);
+        }
+        public bool Delete(string id)
+        {
+            return _res.Delete(id);
         }
         public List<HoaDonNhapModel> Search(int pageIndex, int pageSize, out long total, string hoten, string diachi, bool trangthai)
         {

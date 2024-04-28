@@ -102,7 +102,7 @@
                     <a href="#" class="support zaloOA" ><img src="../anhhoa/zalo-chat-icon.png"></a>
                 </div>
                 <div class="cart">
-                    <a id="shopping-cart" href="../html/giohang.html">
+                    <a id="shopping-cart" href="./giohang.html">
                         <img src="../anhhoa/shopping-bag.png">
                         <strong>Giỏ hàng</strong>
                     </a>
@@ -122,17 +122,11 @@
                     <li><strong><a href="" title="Trang chủ">Trang chủ</a></strong></li>
                     <li class="has_child">
                         <h2>
-                            <a href="#" title="Chủ đề">Chủ đề</a>
+                            <a  title="Chủ đề">Chủ đề</a>
                         </h2>
-                        <div>
-                            <h3><a href="#" title="Hoa Sinh Nhật">Hoa Sinh Nhật</a></h3>
-                            <h3><a href="#" title="Hoa Khai Chương">Hoa Khai Chương</a></h3>
-                            <h3><a href="../html/danhmuc.html" title="Hoa Chúc Mừng">Hoa Chúc Mừng</a></h3>
-                            <h3><a href="#" title="Hoa Chia Buồn">Hoa Chia Buồn</a></h3>
-                            <h3><a href="../html/danhmuc.html" title="Hoa Sức Khỏe ">Hoa Sức Khỏe</a></h3>
-                            <h3><a href="#" title="Hoa Tình Yêu  ">Hoa Tình Yêu</a></h3>
-                            <h3><a href="#" title="Hoa Cảm Ơn ">Hoa Cảm Ơn</a></h3>
-                            <h3><a href="#" title="Hoa Tốt Nghiệp">Hoa Tốt Nghiệp</a></h3>
+                        <div >
+                            <h3 ng-click="category(x)" ng-repeat="x in listCMAll"><a ng-click = "ChiTiet(x.maChuyenMuc)" href="#" title="Hoa Sinh Nhật">{{x.tenChuyenMuc}}</a></h3>
+                            
                         </div>
                     </li>
                     <li class="has_child">
@@ -287,179 +281,30 @@
                         <a href="#"><img src="{{x.anhDaiDien}}" alt=""></a>
                         <a href="#">{{x.tenSanPham}}</a>
                     </li>
-                    <!-- <li>
-                        <a href="#"><img src="{{x.anhDaiDien}}" alt=""></a>
-                        <a href="#">HOA SINH NHẬT</a>
-                    </li>
-                    <li>
-                        <a href="#"><img src="../anhhoa/icon-hoa-sinh-nhat.png" alt=""></a>
-                        <a href="#">MẪU HOA MỚI </a>
-                    </li>
-                    <li>
-                        <a href="#"><img src="../anhhoa/icon-hoa-chuc-mung.png" alt=""></a>
-                        <a href="#">HOA CHÚC MỪNG</a>
-                    </li>
-                    <li>
-                        <a href="#"><img src="../anhhoa/icon-cay-vp.png" alt=""></a>
-                        <a href="#">CÂY VĂN PHÒNG</a>
-                    </li>
-                    <li>
-                        <a href="#"><img src="../anhhoa/icon-hoa-tang-le.png" alt=""></a>
-                        <a href="#">HOA TANG LỄ</a>
-                    </li> -->
                 </ul>
             </div>
         </div>
        
         <div id="ds_muasp">
             <div class="wrapper">
-                <div class="dulieu " >
-                   
+                <div class="dulieu ">
                     <h2>KHUYẾN MÃI</h2>
-                        <div class="sanpham" ng-repeat="x in listItem">
-                            <div class="i">
-                                <a ng-href="#/chitietsp/{{x.maSanPham}}"><img src="{{x.anhDaiDien}}" ></a>
-                            </div>
-                            <div class="t">
-                                <a href="chitietsp.html" id="">{{x.tenSanPham}}</a><br>
-                                <span class="thuoctinh">
-                                
-                                    <em class="gianiemiet">450.000d</em>
-                                    <em>{{x.gia}}đ</em>    
-                                </span>
-                                <span class="selebe">Sale</span>
-                            </div>
-                        </div>
-                        <div ng-view></div>
-                    
-                        <!-- <div class="sanpham">
-                            <div class="i">
-                                <a><img src="../../Anh/hoa3.jpg"></a>
-                            </div>
-                            <div class="t">
-                                <a href="">white roses</a><br>
-                                <span class="thuoctinh">
-                                
-                                    <em class="gianiemiet">450.000d</em>
-                                    <em>350.000d</em>    
-                                </span>
-                                <span class="selebe">Sale</span>
+                        <div class="sanpham" ng-repeat="x in listItem" >
+                            <div ng-click="product(x)">
+                                <div class="i">
+                                    <a ><img src="{{x.anhDaiDien}}" ></a>
+                                </div>
+                                <div class="t">
+                                    <a  id="">{{x.tenSanPham}}</a><br>
+                                    <span class="thuoctinh">
+                                    
+                                        <em class="gianiemiet">450.000d</em>
+                                        <em>{{x.gia}}đ</em>    
+                                    </span>
+                                    <span class="selebe">Sale</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="sanpham">
-                            <div class="i">
-                                <a><img src="../anhhoa/hoa3.jpg"></a>
-                            </div>
-                            <div class="t">
-                                <a href="">white roses</a><br>
-                                <span class="thuoctinh">
-                                
-                                    <em class="gianiemiet">450.000d</em>
-                                    <em>350.000d</em>    
-                                </span>
-                                <span class="selebe">Sale</span>
-                            </div>
-                        </div>
-                        <div class="sanpham">
-                            <div class="i">
-                                <a><img src="../anhhoa/hoa4.png"></a>
-                            </div>
-                            <div class="t">
-                                <a href="">white roses</a><br>
-                                <span class="thuoctinh">
-                                
-                                    <em class="gianiemiet">450.000d</em>
-                                    <em>350.000d</em>    
-                                </span>
-                                <span class="selebe">Sale</span>
-                                <span class="moi"></span>
-                            </div>
-                        </div>
-                        <div class="sanpham">
-                            <div class="i">
-                                <a><img src="../anhhoa/hoa5.png"></a>
-                            </div>
-                            <div class="t">
-                                <a href="">white roses</a><br>
-                                <span class="thuoctinh">
-                                
-                                    <em class="gianiemiet">450.000d</em>
-                                    <em>350.000d</em>    
-                                </span>
-                                <span class="selebe">Sale</span>
-                            </div>
-                        </div>
-                        <div class="sanpham">
-                            <div class="i">
-                                <a><img src="../anhhoa/hoa6.png"></a>
-                            </div>
-                            <div class="t">
-                                <a href="">white roses</a><br>
-                                <span class="thuoctinh">
-                                
-                                    <em class="gianiemiet">450.000d</em>
-                                    <em>350.000d</em>    
-                                </span>
-                            </div>
-                        </div>
-                        <div class="sanpham">
-                            <div class="i">
-                                <a><img src="../anhhoa/hoa7.png"></a>
-                            </div>
-                            <div class="t">
-                                <a href="">white roses</a><br>
-                                <span class="thuoctinh">
-                                
-                                    <em class="gianiemiet">450.000d</em>
-                                    <em>350.000d</em>    
-                                </span>
-                                <span class="selebe">Sale</span>
-                                <span class="moi"></span>
-                            </div>
-                        </div>
-                        <div class="sanpham">
-                            <div class="i">
-                                <a href="chitietsp.html"><img src="../anhhoa/hoa8.png"></a>
-                            </div>
-                            <div class="t">
-                                <a href="chitietsp.html">white roses</a><br>
-                                <span class="thuoctinh">
-                                
-                                    <em class="gianiemiet">450.000d</em>
-                                    <em>350.000d</em>    
-                                </span>
-                                <span class="selebe">Sale</span>
-                                <span class="moi"></span>
-                            </div>
-                        </div>
-                        <div class="sanpham">
-                            <div class="i">
-                                <a><img src="../anhhoa/hoa9.jpg"></a>
-                            </div>
-                            <div class="t">
-                                <a href="">white roses</a><br>
-                                <span class="thuoctinh">
-                                
-                                    <em class="gianiemiet">450.000d</em>
-                                    <em>350.000d</em>    
-                                </span>
-                            </div>
-                        </div>
-                        <div class="sanpham">
-                            <div class="i">
-                                <a href="chitietsp.html"><img src="../anhhoa/hoa10.jpg"></a>
-                            </div>
-                            <div class="t">
-                                <a href="chitietsp.html">white roses</a><br>
-                                <span class="thuoctinh">
-                                
-                                    <em class="gianiemiet">450.000d</em>
-                                    <em>350.000d</em>    
-                                </span>
-                                <span class="selebe">Sale</span>
-                                <span class="moi"></span>
-                            </div>
-                        </div> -->
                 </div>
                 <a href="#" class="xemthem">"Xem thêm, còn 76 sản phẩm"</a>
                 <div class="dulieu_top">

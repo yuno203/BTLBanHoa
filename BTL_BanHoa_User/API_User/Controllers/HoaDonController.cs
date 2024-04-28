@@ -65,11 +65,24 @@ namespace Api.BanHang.Controllers
                         // Xử lý trường hợp không thể chuyển đổi ngày tạo thành kiểu DateTime
                     }
                 }
-               
+                DateTime? ngayDuyet = null; // Khởi tạo biến ngay_tao kiểu DateTime?
+
+                if (formData.Keys.Contains("ngay_duyet") && !string.IsNullOrEmpty(Convert.ToString(formData["ngay_duyet"])))
+                {
+                    if (DateTime.TryParse(Convert.ToString(formData["ngay_duyet"]), out DateTime parsedNgayDuyet))
+                    {
+                        ngayDuyet = parsedNgayDuyet;
+                    }
+                    else
+                    {
+                        // Xử lý trường hợp không thể chuyển đổi ngày tạo thành kiểu DateTime
+                    }
+                }
+
 
 
                 long total = 0;
-                var data = _hoadonBusiness.Search(page, pageSize,out total , ten_khach, diachi, trang_thai,ngayTao);
+                var data = _hoadonBusiness.Search(page, pageSize,out total , ten_khach, diachi, trang_thai,ngayTao,ngayDuyet);
                 return Ok(
                    new
                    {

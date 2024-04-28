@@ -50,7 +50,7 @@ namespace API_Hoa.Controllers
         public IActionResult DeleteChuyenMuchang([FromBody] Dictionary<string, object> formData)
         {
             string ID = "";
-            if (formData.Keys.Contains("ID") && !string.IsNullOrEmpty(Convert.ToString(formData["ID"]))) { ID = Convert.ToString(formData["ID"]); }
+            if (formData.Keys.Contains("MaChuyenMuc") && !string.IsNullOrEmpty(Convert.ToString(formData["MaChuyenMuc"]))) { ID = Convert.ToString(formData["MaChuyenMuc"]); }
             _ChuyenMucBusiness.Delete(ID);
             return Ok();
         }

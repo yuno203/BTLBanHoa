@@ -7,7 +7,7 @@ using System;
 
 namespace Api.BanHang.Controllers
 {
-    
+   
     [Route("api/[controller]")]
     [ApiController]
     public class SanPhamController : ControllerBase
@@ -88,6 +88,12 @@ namespace Api.BanHang.Controllers
         {
             return _sanphamBusiness.GetDatabyID(id);
         }
+        [Route("get-all")]
+        [HttpGet]
+        public IEnumerable<SanPhamModel> GetDatabAll()
+        {
+            return _sanphamBusiness.GetDataAll();
+        }
 
 
         [Route("create-item")]
@@ -104,7 +110,7 @@ namespace Api.BanHang.Controllers
         //    _khachBusiness.Update(model);
         //    return model;
         //}
-
+        //[Authorize]
         [Route("search")]
         [HttpPost]
         public IActionResult Search([FromBody] Dictionary<string, object> formData)

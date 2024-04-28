@@ -13,10 +13,10 @@ namespace BusinessLogicLayer
         {
             _res = res;
         }
-        public bool Create(ChuyenMucModel model)
-        {
-            return _res.Create(model);
-        }
+        //public bool Create(ChuyenMucModel model)
+        //{
+        //    return _res.Create(model);
+        //}
         public ChuyenMucModel GetDatabyID(string id)
         {
             return _res.GetDatabyID(id);
@@ -25,17 +25,17 @@ namespace BusinessLogicLayer
         {
             return _res.GetDataAll();
         }
-        public bool Update(ChuyenMucModel model)
-        {
-            return _res.Update(model);
-        }
+        //public bool Update(ChuyenMucModel model)
+        //{
+        //    return _res.Update(model);
+        //}
         public List<ChuyenMucModel> Search(int pageIndex, int pageSize, out long total, string ten_ChuyenMuc)
         {
             return _res.Search(pageIndex, pageSize, out total,ten_ChuyenMuc);
         }
-        public bool Delete(string id)
-        {
-            return _res.Delete(id);
-        }
+        //public bool Delete(string id)
+        //{
+        //    return _res.Delete(id);
+        //}
     }
 }

@@ -14,6 +14,6 @@ namespace DataAccessLayer
         //bool Update(HoaDonModle model);
 
         bool Update1(HoaDonModel model);
-        List<HoaDonModel> Search(int pageIndex, int pageSize, out long total, string hoten, string diachi, bool trangthai, DateTime? ngayTao);
+        List<HoaDonModel> Search(int pageIndex, int pageSize, out long total, string hoten, string diachi, bool trangthai, DateTime? ngayTao, DateTime? ngayDuyet );
     }
 }

@@ -33,20 +33,26 @@ namespace DataAccessLayer
             string msgError = "";
             try
             {
-                var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "sp_hoadon_create",
-                "@TenKH",model.TenKH,              
-                "@DiaChi", model.Diachi,
-                "@trangthai", model.trangthai,
-                "@NgayTao",model.NgayTao,
-                "@NgayDuyet",model.NgayDuyet,
-                "@TongGia",model.TongGia,
-                "@Email",model.Email,
-                "@SDT",model.SDT,
-                "@DiaChiGiaoHang",model.DiaChiGiaoHang,
-                "@list_json_chitiethoadon", model.list_json_chitiethoadon != null ? MessageConvert.SerializeObject(model.list_json_chitiethoadon) : null);
-                if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
+                if (model.NgayTao < DateTime.MinValue || model.NgayTao > DateTime.MaxValue ||
+                    model.NgayDuyet < DateTime.MinValue || model.NgayDuyet > DateTime.MaxValue)
                 {
-                    throw new Exception(Convert.ToString(result) + msgError);
+                    throw new Exception("Giá trị ngày không hợp lệ.");
+                }
+
+                var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "sp_hoadon_create",
+                    "@TenKH", model.TenKH,
+                    "@DiaChi", model.Diachi,
+                    "@trangthai", model.trangthai,
+                    "@NgayTao", model.NgayTao,
+                    "@NgayDuyet", model.NgayDuyet,
+                    "@TongGia", model.TongGia,
+                    "@Email", model.Email,
+                    "@SDT", model.SDT,
+                    "@DiaChiGiaoHang", model.DiaChiGiaoHang,
+                    "@list_json_chitiethoadon", model.list_json_chitiethoadon != null ? MessageConvert.SerializeObject(model.list_json_chitiethoadon) : null);
+                if (!string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(msgError);
                 }
                 return true;
             }
@@ -55,6 +61,7 @@ namespace DataAccessLayer
                 throw ex;
             }
         }
+
         //public bool Update(HoaDonModel model)
         //{
         //    string msgError = "";
@@ -66,7 +73,7 @@ namespace DataAccessLayer
         //        "@DiaChi", model.Diachi,
         //        "@trangthai", model.trangthai,
         //        "@listjson_chitiet", model.list_json_chitiethoadon != null ? MessageConvert.SerializeObject(model.list_json_chitiethoadon) : null);
-                
+
         //        if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
         //        {
         //            throw new Exception(Convert.ToString(result) + msgError);
@@ -80,7 +87,7 @@ namespace DataAccessLayer
         //}
 
         public List<HoaDonModel> Search(int pageIndex, int pageSize, out long total, string ten_khach, string dia_chi, bool trang_thai,
-            DateTime? ngayTao   )
+            DateTime? ngayTao , DateTime? ngayDuyet)
         {
             string msgError = ""; 
             total = 0;

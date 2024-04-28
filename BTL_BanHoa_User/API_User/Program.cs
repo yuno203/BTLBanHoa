@@ -21,14 +21,14 @@ builder.Services.AddCors(option =>
 
 // Add services to the container.
 builder.Services.AddTransient<IDatabaseHelper, DatabaseHelper>();
-builder.Services.AddTransient<IKhachRepository, KhachRepository>();
-builder.Services.AddTransient<IKhachBusiness, KhachBusiness>();
+//builder.Services.AddTransient<IKhachRepository, KhachRepository>();
+//builder.Services.AddTransient<IKhachBusiness, KhachBusiness>();
 builder.Services.AddTransient<IHoaDonBusiness, HoaDonBusiness>();
 builder.Services.AddTransient<IHoaDonRepository, HoaDonRepository>();
-builder.Services.AddTransient<IThongKeBusiness, ThongKeBusiness>();
-builder.Services.AddTransient<IThongKeRepository, ThongKeRepository>();
-builder.Services.AddTransient<IHoaDonNhapBusiness, HoaDonNhapBusiness>();
-builder.Services.AddTransient<IHoaDonNhapRepository, HoaDonNhapRepository>();
+//builder.Services.AddTransient<IThongKeBusiness, ThongKeBusiness>();
+//builder.Services.AddTransient<IThongKeRepository, ThongKeRepository>();
+//builder.Services.AddTransient<IHoaDonNhapBusiness, HoaDonNhapBusiness>();
+//builder.Services.AddTransient<IHoaDonNhapRepository, HoaDonNhapRepository>();
 builder.Services.AddTransient<IUserBusiness, UserBusiness>();
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<ISanPhamBusiness, SanPhamBusiness>();

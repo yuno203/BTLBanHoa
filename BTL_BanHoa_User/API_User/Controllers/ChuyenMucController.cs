@@ -30,30 +30,30 @@ namespace API_Hoa.Controllers
             return _ChuyenMucBusiness.GetDataAll();
         }
 
-        [Route("create-item")]
-        [HttpPost]
-        public ChuyenMucModel Create([FromBody] ChuyenMucModel model)
-        {
-            _ChuyenMucBusiness.Create(model);
-            return model;
-        }
-        [Route("update-item")]
-        [HttpPost]
-        public ChuyenMucModel Update([FromBody] ChuyenMucModel model)
-        {
-            _ChuyenMucBusiness.Update(model);
-            return model;
-        }
+        //[Route("create-item")]
+        //[HttpPost]
+        //public ChuyenMucModel Create([FromBody] ChuyenMucModel model)
+        //{
+        //    _ChuyenMucBusiness.Create(model);
+        //    return model;
+        //}
+        //[Route("update-item")]
+        //[HttpPost]
+        //public ChuyenMucModel Update([FromBody] ChuyenMucModel model)
+        //{
+        //    _ChuyenMucBusiness.Update(model);
+        //    return model;
+        //}
 
-        [Route("delete")]
-        [HttpDelete]
-        public IActionResult DeleteChuyenMuchang([FromBody] Dictionary<string, object> formData)
-        {
-            string ID = "";
-            if (formData.Keys.Contains("ID") && !string.IsNullOrEmpty(Convert.ToString(formData["ID"]))) { ID = Convert.ToString(formData["ID"]); }
-            _ChuyenMucBusiness.Delete(ID);
-            return Ok();
-        }
+        //[Route("delete")]
+        //[HttpDelete]
+        //public IActionResult DeleteChuyenMuchang([FromBody] Dictionary<string, object> formData)
+        //{
+        //    string ID = "";
+        //    if (formData.Keys.Contains("ID") && !string.IsNullOrEmpty(Convert.ToString(formData["ID"]))) { ID = Convert.ToString(formData["ID"]); }
+        //    _ChuyenMucBusiness.Delete(ID);
+        //    return Ok();
+        //}
 
 
         [Route("search")]

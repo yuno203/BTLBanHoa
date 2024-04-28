@@ -7,37 +7,30 @@
     <link rel="stylesheet" href="../Anh/fontawesome-free-6.4.2-web/css/all.min.css">
     <link rel="stylesheet" href="../CSS/Login.css">
    
-    <script src="../link2/jquery.2.1.1.min.js"></script>
-    <script src="../link2/jquery.min.js"></script>
-    <!-- <script type="text/javascript">
-        window.jQuery || document.write("<script src='../link2/jquery.min.js'>"+"<"+"/script>");
-    </script> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-
-    <script type="text/javascript">
-        if('ontouchstart' in document.documentElement) document.write("<script src='../link2/jquery.mobile.custom.min.js'>"+"<"+"/script>");
-    </script>
+    <script src="../link/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../link/ad_login.js"></script>
+    <script src="../link/global.js"></script>
   
 </head>
-<body>
+<body ng-app="AppBanHang" ng-controller="LoginCtrl">
   
         <div class="content">
             <form action="">
                 <h1>Login</h1>
                 <div class="inbox tk">
-                    <input id="tailkhoan" type="text" placeholder="Usename">
+                    <input ng-model="username" id="tailkhoan" type="text" placeholder="Usename">
                     <i class="fa-solid fa-user"></i>
                 </div>
                 <div class="inbox mk">
-                    <input id="matkhau" type="password" placeholder="Password">
+                    <input ng-model="password" id="matkhau" type="password" placeholder="Password">
                     <i class="fa-solid fa-lock"></i>
                 </div>
                 <div class="remember-mk">
                     <label for=""><input type="checkbox">nhớ mật khẩu</label>
                     <a href="">Quên mật khẩu</a>
                 </div>
-                <button type="button" onclick="Login()" ng-click="Login()" class="btn">Login</button>
+                <button type="button"  ng-click="login()" class="btn">Login</button>
                 <div class="linkk">
                     <p>Bạn chưa có tài khoản?<a style="color: aliceblue;" href="">Đăng ký</a></p>
                 </div>
@@ -45,28 +38,7 @@
         </div>
 
         <script> 
-            function Login() {
-                var item = {};
-                item.username = $("#tailkhoan").val();
-                item.password = $("#matkhau").val();
-                $.ajax({
-                    type: "POST",
-                    url: "https://localhost:44366/api/User/login",
-                    dataType: "json",
-                    contentType: 'application/json',
-                    data: JSON.stringify(item)
-                }).done(function (data) {
-                    if (data != null && data.message != null && data.message != 'undefined') {
-                        alert(data.message);
-                    } else {
-                        localStorage.setItem("user", JSON.stringify(data));
-                        window.location.href = "SanPham.html";
-                    }
-                }) .fail(function(e) {
-                  alert('Có lỗi');
-                  console.log(e);
-                }); 
-            };
+           
         </script>
 </body>
 </html>

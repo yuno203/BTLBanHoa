@@ -34,6 +34,13 @@ function openCloseDropdown(event){
     
 }
 
+function Openhd(){
+    $('.showhd').css({'transform':'scaleY(1)'});
+}
+function exithd(){
+    $('.showhd').css({'transform':'scaleY(0)'});
+}
+
 //Thêm mới
 function OpenAddsp(){
     $('.add-sp').css({'transform':'scaleY(1)'});
@@ -42,7 +49,13 @@ function OpenAddsp(){
 function exit(){
     $('.add-sp').css({'transform':'scaleY(0)'});
 }
-
+function OpenEdit(){
+    $('.edit_cthd').css({'transform':'scaleY(1)'});
+}
+//thoat
+function exited(){
+    $('.edit_cthd').css({'transform':'scaleY(0)'});
+}
 
 
 //lam moi

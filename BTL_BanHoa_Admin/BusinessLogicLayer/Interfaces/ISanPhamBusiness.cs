@@ -13,6 +13,7 @@ namespace BusinessLogicLayer.Interfaces
         bool Create(SanPhamModel model);
         bool Update1(SanPhamModel model);
         bool Update(SanPhamModel model);
+        List<SanPhamModel> GetDataAll();
         bool Delete(string id);
         //bool Deletes(string id);
         List<SanPhamModel> Search(int pageindex, int pagesize, out long total, string tenSanPham,int gia, int soluong);

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thong Ke</title>
+    <link rel="stylesheet" href="../Anh/fontawesome-free-6.4.2-web/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/TrangChu.css">
+    <script src="../link/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../link/ad_thongke.js"></script>
+    <script src="../link/global.js"></script>
+    <script src="../JS/TrangChu.JS"></script>
+    </head>
+<body ng-app="AppBanHang" ng-controller="ThongKeCtrl" >
+  
+        <div class="navbar">
+            <ul class="navbar-nav">
+                <li class="navbar-item">
+                    <a href="" class="navbar-link">
+                        <i onclick="menuhome()" class="fa-solid fa-bars" style="font-size: 24px;"></i>
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <img class="logo" src="../Anh/434428_dien-hoa.png" alt="">
+                </li>
+            </ul>
+            <form class="navbar-search">
+                <input type="search" name="search"  ng-model="tenSanPham" id="" class="navbar-search" placeholder="Nhập thông tin cần tìm">
+            </form>
+            <ul class="navbar-nav nav-right">
+                    <li class="navbar-item bell">
+                        <a class="navbar-link">
+                            <i class="fa-solid fa-bell  menu-drop" data-menu="x" style="font-size: 24px;"></i>
+                            <span class="navbar-bell">
+                                    15
+                            </span>
+                        </a>
+                        <ul class="menu-bell widthmin x"id="x">
+                            <div class="menu-bell-header">
+                                <span>Thông Báo</span>
+                            </div>
+                            <div class="menu-bell-content  overlay-scrollbar">
+                               <li class="menu-bell-content-item">
+                                <a href="" class="menu-bell-content-link">
+                                   <div>
+                                        <i class="fa-solid fa-folder-plus"></i>
+                                   </div>
+                                   <span>
+                                        Tạo mới thành công 
+                                        <br>
+                                        <span>
+                                            12/09/2023
+                                        </span>
+                                   </span>
+                                   
+                                </a>
+                               </li>
+                               <li class="menu-bell-content-item">
+                                <a href="" class="menu-bell-content-link">
+                                   <div>
+                                        <i class="fa-solid fa-folder-plus"></i>
+                                   </div>
+                                   <span>
+                                        Tạo mới thành công 
+                                        <br>
+                                        <span>
+                                            12/09/2023
+                                        </span>
+                                   </span>
+                                   
+                                </a>
+                               </li>
+                               <li class="menu-bell-content-item">
+                                <a href="" class="menu-bell-content-link">
+                                   <div>
+                                        <i class="fa-solid fa-folder-plus"></i>
+                                   </div>
+                                   <span>
+                                        Tạo mới thành công
+                                        <br>
+                                        <span>
+                                            12/09/2023
+                                        </span>
+                                   </span>
+                                   
+                                </a>
+                               </li>
+                               <li class="menu-bell-content-item">
+                                <a href="" class="menu-bell-content-link">
+                                   <div>
+                                        <i class="fa-solid fa-folder-plus"></i>
+                                   </div>
+                                   <span>
+                                        Tạo mới thành công
+                                        <br>
+                                        <span>
+                                            12/09/2023
+                                        </span>
+                                   </span>
+                                   
+                                </a>
+                               </li>
+                               <li class="menu-bell-content-item">
+                                <a href="" class="menu-bell-content-link">
+                                   <div>
+                                        <i class="fa-solid fa-folder-plus"></i>
+                                   </div>
+                                   <span>
+                                        Tạo mới thành công 
+                                        <br>
+                                        <span>
+                                            12/09/2023
+                                        </span>
+                                   </span>
+                                   
+                                </a>
+                               </li>
+                               <li class="menu-bell-content-item">
+                                <a href="" class="menu-bell-content-link">
+                                   <div>
+                                        <i class="fa-solid fa-folder-plus"></i>
+                                   </div>
+                                   <span>
+                                        Tạo mới thành công 
+                                        <br>
+                                        <span>
+                                            12/09/2023
+                                        </span>
+                                   </span>
+                                   
+                                </a>
+                               </li>
+                               <li class="menu-bell-content-item">
+                                <a href="" class="menu-bell-content-link">
+                                   <div>
+                                        <i class="fa-solid fa-folder-plus"></i>
+                                   </div>
+                                   <span>
+                                        Tạo mới thành công 
+                                        <br>
+                                        <span>
+                                            12/09/2023
+                                        </span>
+                                   </span>
+                                   
+                                </a>
+                               </li>
+                               <li class="menu-bell-content-item">
+                                <a href="" class="menu-bell-content-link">
+                                   <div>
+                                        <i class="fa-solid fa-folder-plus"></i>
+                                   </div>
+                                   <span>
+                                        Tạo mới thành công 
+                                        <br>
+                                        <span>
+                                            12/09/2023
+                                        </span>
+                                   </span>
+                                   
+                                </a>
+                               </li>
+                               <li class="menu-bell-content-item">
+                                <a href="" class="menu-bell-content-link">
+                                   <div>
+                                        <i class="fa-solid fa-folder-plus"></i>
+                                   </div>
+                                   <span>
+                                        Tạo mới thành công 
+                                        <br>
+                                        <span>
+                                            12/09/2023
+                                        </span>
+                                   </span>
+                                   
+                                </a>
+                               </li><li class="menu-bell-content-item">
+                                <a href="" class="menu-bell-content-link">
+                                   <div>
+                                        <i class="fa-solid fa-folder-plus"></i>
+                                   </div>
+                                   <span>
+                                        Tạo mới thành công 
+                                        <br>
+                                        <span>
+                                            12/09/2023
+                                        </span>
+                                   </span>
+                                   
+                                </a>
+                               </li>
+                            </div>
+                            <div class="menu-bell-footter"> 
+                                <span>Hiển thị thêm</span>
+                            </div>
+                        </ul>
+                    </li>
+                    <li class="navbar-item">
+                            <div class="avt-menu">
+                                <img class="avt menu-drop" data-menu="y" src="../Anh/WIN_20220509_21_23_13_Pro.png" alt="">
+                                <ul class="menu-avt widthmin1 y"id="y">
+                                    <div class="menu-avt-content">
+                                       <li class="menu-avt-item">
+                                        <a href="" class="menu-avt-link">
+                                           <div>
+                                            <i class="fa-solid fa-user" style="font-size: 24px;"></i>
+                                           </div>
+                                           <span>
+                                                Tài khoản
+                                           </span>
+                                           
+                                        </a>
+                                       </li>
+                                       <li class="menu-avt-item">
+                                        <a href="" class="menu-avt-link">
+                                           <div>
+                                            <i class="fa-solid fa-user" style="font-size: 24px;"></i>
+                                           </div>
+                                           <span>
+                                                Tài khoản
+                                           </span>
+                                           
+                                        </a>
+                                       </li>
+                                       <li class="menu-avt-item">
+                                        <a href="" class="menu-avt-link">
+                                           <div>
+                                            <i class="fa-solid fa-user"style="font-size: 24px;"></i>
+                                           </div>
+                                           <span>
+                                                Tài khoản
+                                           </span>
+                                           
+                                        </a>
+                                       </li>
+                                       <li class="menu-avt-item">
+                                        <a href="" class="menu-avt-link">
+                                           <div>
+                                            <i class="fa-solid fa-user"style="font-size: 24px;"></i>
+                                           </div>
+                                           <span>
+                                                Tài khoản
+                                           </span>
+                                           
+                                        </a>
+                                       </li>
+                                    </div>
+                                </ul>  
+                            </div>
+                    </li>
+            </ul>
+        </div>
+        <div class="menu-left">
+            <ul class="menu-left-content ">
+                   <li class="menu-left-content-item">
+                    <a href="" class="menu-left-content-link">
+                       <div>
+                        <i class="fa-solid fa-user" style="font-size: 24px;"></i>
+                       </div>
+                       <span>
+                            Home
+                       </span>
+                       
+                    </a>
+                   </li>
+                   <li class="menu-left-content-item">
+                    <a href="./SanPham.html" class="menu-left-content-link " >
+                       <div>
+                        <i class="fa-solid fa-user" style="font-size: 24px;" ></i>
+                       </div>
+                       <span>
+                            Sản phẩm
+                       </span>
+                       
+                    </a>
+                   </li>
+                   <li class="menu-left-content-item">
+                    <a href="./KhachHang.html" class="menu-left-content-link ">
+                       <div>
+                        <i class="fa-solid fa-user " style="font-size: 24px;"></i>
+                       </div>
+                       <span>
+                            Khách hàng
+                       </span>
+                       
+                    </a>
+                   </li>
+                   <li class="menu-left-content-item ">
+                    <a href="./HoaDonBan.html" class="menu-left-content-link ">
+                       <div>
+                        <i class="fa-solid fa-user" style="font-size: 24px;"></i>
+                       </div>
+                       <span>
+                            Hóa đơn
+                       </span>
+                       
+                    </a>
+                   </li>
+                   <li class="menu-left-content-item">
+                    <a href="" class="menu-left-content-link active">
+                       <div>
+                        <i class="fa-solid fa-user" style="font-size: 24px;"></i>
+                       </div>
+                       <span>
+                            Thống Kê 
+                       </span>
+                       
+                    </a>
+                   </li>
+                   <li class="menu-left-content-item">
+                    <a href="" class="menu-left-content-link">
+                       <div>
+                        <i class="fa-solid fa-user" style="font-size: 24px;"></i>
+                       </div>
+                       <span>
+                            Tài khoản
+                       </span>
+                       
+                    </a>
+                   </li>
+                   
+                   
+            </ul>
+        </div>
+        <div class="content-right">
+            <div class="product-management">
+                <h2>Quản lý thống kê</h2>
+                <input ng-model="fr_NgayTao" style="width: 150px;"  class="themmoi" placeholder="from" type="date"> -</input>
+                <input ng-model="to_NgayTao" class="xoanhieu" style="width: 150px;" placeholder="to" type="date"></input>
+                <button class="themmoi" ng-click="Loadthongke()" style="margin-left: 15px; background-color:rgb(227, 190, 190) "type="submit">Thống kê</button>
+                <div>
+                    <label for="">Hien thi</label>
+                    <select name="" id="pageSize " ng-model="pageSize"  ng-change="repaginate()">
+                         <option value="3">3</option>
+                         <option value="5">5</option>
+                         <option value="8">8</option>
+                    </select>
+                </div>
+                <table>
+                  <thead>
+                    <tr>
+                      <th >Mã sản phẩm</th>
+                      <th >Tên sản phẩm</th>
+                     
+                      <th>Số lượng</th>
+                      <th>Ảnh</th>
+                      <th>Ngày tạo </th>
+                      <th>Tên khách hàng</th>
+                      <th>Tổng giá</th>                    
+                    
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="x in listThongKe " > 
+                      <td>{{x.maSanPham }}</td>
+                      <td>{{x.tenSanPham }}</td>
+                      <td >{{x.soLuong}}</td>
+                      <td><img src="{{x.anhDaiDien}}" alt=""></td>
+                      <td >{{x.ngayTao}}</td>
+                      <td>{{x.tenKH}}</td>
+                      <td>{{x.donGia}} </td>                     
+                     
+                    </tr>
+                   
+                  </tbody>
+                </table>
+              </div>
+              <div class="product-management">
+               <h2>Quản lý thống kê</h2>
+               <input ng-model="top_n" style="width: 150px;"  class="themmoi" placeholder="from" type="number"> </input>
+               
+               <button class="themmoi" ng-click="Loadthongkebanchay()" style="margin-left: 15px; background-color:rgb(227, 190, 190) "type="submit">Thống kê bán chạy</button>
+               <div>
+                   <label for="">Hien thi</label>
+                   <select name="" id="pageSize " ng-model="pageSize"  ng-change="repaginate()">
+                        <option value="3">3</option>
+                        <option value="5">5</option>
+                        <option value="8">8</option>
+                   </select>
+               </div>
+               <table>
+                 <thead>
+                   <tr>
+                     <th >Mã sản phẩm</th>
+                     <th >Tên sản phẩm</th>
+                     <th>Tổng số lượng</th>
+                     <th>Ảnh</th>
+                                      
+                   
+                   </tr>
+                 </thead>
+                 <tbody>
+                   <tr ng-repeat="x in listThongKeBC " > 
+                     <td>{{x.maSanPham }}</td>
+                     <td>{{x.tenSanPham }}</td>
+                     <td >{{x.totalQuantitySold}}</td>
+                     <td><img src="{{x.anhDaiDien}}" alt=""></td>
+                                        
+                    
+                   </tr>
+                  
+                 </tbody>
+               </table>
+             </div>
+              
+             
+               <div class="footer">
+                    <div class="page-num">
+                         <span class="span-page">
+                             <a ng-click="first()" href="#"><button>First</button></a>
+                             <a ng-click="Previous()" href="#"><button>Previous</button></a>
+                           
+                             <a ng-click="next()" href="#"><button>Next</button></a>
+                             <a ng-click="last()" href="#"><button>Last</button></a>
+                         </span>
+                     </div>
+             </div>
+         </div>
+     </div>
+       
+    <script>
+     var user = JSON.parse(localStorage.getItem('user'));
+     if (!user) {
+         window.location.href = "Login.html";
+     }
+     else {
+    // Nếu đã đăng nhập, thực hiện yêu cầu HTTP với token
+    var token = user.token;
+     }
+ </script>
+</body>
+</html>

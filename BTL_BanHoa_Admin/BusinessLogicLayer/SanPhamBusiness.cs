@@ -29,6 +29,10 @@ namespace BusinessLogicLayer
         {
             return _res.Update(model);
         }
+        public List<SanPhamModel> GetDataAll()
+        {
+            return _res.GetDataAll();
+        }
         public bool Delete(string id)
         {
             return _res.Delete(id);

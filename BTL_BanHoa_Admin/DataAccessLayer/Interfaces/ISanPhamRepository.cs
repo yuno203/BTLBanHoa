@@ -13,6 +13,7 @@ namespace DataAccessLayer.Interfaces
         bool Create(SanPhamModel model);
         //bool Update(HoaDonModle model);
         bool Update(SanPhamModel model);
+        List<SanPhamModel> GetDataAll();
         bool Delete(string id);
         //bool Deletes(string id);
         bool Update1(SanPhamModel model);

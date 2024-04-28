@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <script src="../link/angular.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../link/home.js"></script>
+    <script src="../link/user_chitietsp.js"></script>
     <script src="../link/global.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-route.min.js"></script>
 </head>
-<body  ng-controller="ChiTietSanPhamCtrl">
+<body ng-app="AppBanHang"  ng-controller="ChiTietSanPhamCtrl">
     <div id="container">
         <header>
             <div class="dropdown" style="float: left;padding: 10px;">
@@ -52,7 +52,7 @@
                     <a href="#" class="support zaloOA" ><img src="../anhhoa/zalo-chat-icon.png"></a>
                 </div>
                 <div class="cart">
-                    <a id="shopping-cart" href="../html/giohang.html">
+                    <a id="shopping-cart" href="./giohang.html">
                         <img src="../anhhoa/shopping-bag.png">
                         <strong>Giỏ hàng</strong>
                     </a>
@@ -189,21 +189,22 @@
                 </ul>   
                 <div class="ttchitiet" >
                     <div class="dulieu_trai">
-                        <div class="imgchitiet"><img width="300"height= "360" ng-src="{{AnhDaiDien}}"></div>
+                        <div class="imgchitiet"><img width="300"height= "360" src="{{ProductDetail.anhDaiDien}}"></div>
                         <a style="display: block;text-align: center; color: #2f80ed ;" href="#">Xem ảnh thực tế</a>
                     </div>
                     <div class="dulieu_phai"> 
-                        <h2 >{{tenSanPham}}</h2>
+                       
+                        <h2 >{{ProductDetail.tenSanPham}}</h2>
                         <div class="giatt"> 
                             <span class="giacu">1.000.000 đ</span>
-                            <span class="giamoi">{{gia}} đ</span>
+                            <span class="giamoi">{{ProductDetail.gia}} đ</span>
                         </div>
                         <p class="vat">Giá đã bao gồm 10% VAT</p>
                         <div class="gach"></div>
                         <div class="luuytritiet" style="font-size: 14px;">
                             Lưu ý: Kệ chúc mừng size để bàn, kích thước: 40 x 60 (cm)
                         </div>
-                        <div ng-view></div>
+                       
 
                         <h4 style="color: #a6a6a6;margin-top: 10px; font-size: 14px;">Sản phẩm bao gồm: </h4>
                         <ul class="ndsanpham">
@@ -225,8 +226,8 @@
                             </p>
                         </div>
                         <div class="nutbam">
-                            <button id="giohang">Thêm giỏ hàng</button>
-                            <a class="muahang" href="../html/donhang.html">Mua ngay</a>
+                            <button ng-click="cart()" id="giohang">Thêm giỏ hàng</button>
+                            <a href="./giohang.html" class="muahang" ng-click="cart()">Mua ngay</a>
                         </div>
                         <div class="sodienthoai">
                             <a style="color:#4caf50;" href="#">Gọi ngay : 0327000908</a>

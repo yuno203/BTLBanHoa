@@ -6,9 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gio hang</title>
     <link rel="stylesheet" href="../css/giohang.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <script src="../link/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../link/user_giohang.js"></script>
+    <script src="../link/global.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-route.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 </head>
-<body>
+<body ng-app="AppBanHang" ng-controller="GioHangCtrl">
     <div id="container">
         <header>
             <div class="dropdown" style="float: left;padding: 10px;">
@@ -182,13 +189,13 @@
                     </li>
                 </ul>
                 <div class="nhieugiohang">
-                    <div class="giohang">
-                        <div class="anhchitiet"> <img src="../anhhoa/hoa8.png" alt=""></div>
+                    <!-- <div class="giohang">
+                        <div class="anhchitiet"> <img src="{{Cart.anhDaiDien}}" alt=""></div>
                         <div class="chitietphai">
-                            <span ><a style="color: #bd2026;display: block;font-weight: 600;font-size: 14px;" href="">white roses</a></span>
+                            <span ><a style="color: #bd2026;display: block;font-weight: 600;font-size: 14px;" href="">{{Cart.tenSanPham}}</a></span>
                             <br>
                             <p>
-                            <span class="gia" >800.000</span><sup>đ</sup>
+                            <span class="gia" >{{Cart.gia}}đ</span><sup>đ</sup>
                             </p>    
                             <div class="soluong">
                                 <div class="giam"></div>
@@ -199,8 +206,11 @@
                         <div class="huy">
                             <span class="X" href="">X</span>
                         </div>
-                    </div>      
-                    <div class="giohang">
+                        <div class="choosesp" style="display: flex;">
+                            <input type="checkbox">
+                        </div>
+                    </div>       -->
+                    <!-- <div class="giohang">
                         <div class="anhchitiet"> <img src="../anhhoa/hoa8.png" alt=""></div>
                         <div class="chitietphai">
                             <span ><a style="color: #bd2026;display: block;font-weight: 600;font-size: 14px;" href="">white roses</a></span>
@@ -217,7 +227,7 @@
                         <div class="huy">
                             <span class="X" href="">X</span>
                         </div>
-                    </div>      
+                    </div>       -->
                        
                 </div>
                 <div class="tong">
@@ -245,7 +255,7 @@
                         <strong>0</strong>
                     </div>
                      <div class="datmua">
-                        <a href="../html/donhang.html">
+                        <a href="./donhang.html">
                             Đặt hàng
                         </a>
                      </div>

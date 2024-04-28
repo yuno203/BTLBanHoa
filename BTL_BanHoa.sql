@@ -25,6 +25,8 @@ CREATE TABLE dbo.HoaDons(
     DiaChiGiaoHang nvarchar(350),
     ThoiGianGiaoHang datetime
 );
+alter table dbo.HoaDons
+ALTER COLUMN NgayTao datetime;
 go
 CREATE TABLE dbo.KhachHangs(
     Id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
@@ -141,6 +143,18 @@ FOREIGN KEY (LoaiTaiKhoan)
 REFERENCES dbo.LoaiTaiKhoans(MaLoai)
 ON DELETE CASCADE
 ON UPDATE CASCADE;
+
+
+--ALTER TABLE dbo.SanPhams
+--ADD CONSTRAINT FK_SanPhams_ChuyenMucs
+--FOREIGN KEY (MaChuyenMuc)
+--REFERENCES dbo.ChuyenMucs(MaChuyenMuc)
+--ON DELETE CASCADE
+--ON UPDATE CASCADE;
+
+go
+ALTER TABLE dbo.HoaDons
+ALTER COLUMN GioiTinh bit NULL
 
 
 go

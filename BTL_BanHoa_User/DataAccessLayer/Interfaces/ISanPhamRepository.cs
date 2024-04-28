@@ -9,11 +9,13 @@ namespace DataAccessLayer.Interfaces
 {
     public partial interface ISanPhamRepository
     {
+        List<SanPhamCMModel> GetDatabyI1D(string id);
         SanPhamModel GetDatabyID(string id);    
-        bool Create(SanPhamModel model);
-        //bool Update(HoaDonModle model);
+     
+        List<SanPhamModel> GetDataBanChay();
         List<SanPhamModel> GetDataAll();
-        bool Update1(SanPhamModel model);
-        List<SanPhamModel> Search(int pageIndex, int pageSize, out long total, string tenSanPham, int gia, int soluong);
+       
+        
+        List<SanPhamModel> Search(int pageIndex, int pageSize, out long total, string tenSanPham, int maChuyenMuc, int giaFrom, int giaTo, int soluong, bool dacbiet);
     }
 }

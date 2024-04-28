@@ -266,7 +266,7 @@
                     </a>
                    </li>
                    <li class="menu-left-content-item">
-                    <a href="" class="menu-left-content-link active" >
+                    <a href="./SanPham.html" class="menu-left-content-link active" >
                        <div>
                         <i class="fa-solid fa-user" style="font-size: 24px;" ></i>
                        </div>
@@ -277,7 +277,7 @@
                     </a>
                    </li>
                    <li class="menu-left-content-item">
-                    <a href="" class="menu-left-content-link ">
+                    <a href="./KhachHang.html" class="menu-left-content-link ">
                        <div>
                         <i class="fa-solid fa-user " style="font-size: 24px;"></i>
                        </div>
@@ -288,12 +288,23 @@
                     </a>
                    </li>
                    <li class="menu-left-content-item ">
-                    <a href="" class="menu-left-content-link">
+                    <a href="./HoaDonBan.html" class="menu-left-content-link">
                        <div>
                         <i class="fa-solid fa-user" style="font-size: 24px;"></i>
                        </div>
                        <span>
                             Hóa đơn
+                       </span>
+                       
+                    </a>
+                   </li>
+                   <li class="menu-left-content-item">
+                    <a href="./ThongKe.html" class="menu-left-content-link">
+                       <div>
+                        <i class="fa-solid fa-user" style="font-size: 24px;"></i>
+                       </div>
+                       <span>
+                            Thống Kê 
                        </span>
                        
                     </a>
@@ -318,12 +329,20 @@
                 <h2>Quản lý sản phẩm</h2>
                 <button style="background-color: #93ee9d;" onclick="OpenAddsp()" class="themmoi">Thêm mới</button>
                 <button style="background-color: #f2868a;" ng-click="XoaSanPhamNhieu()" class="xoanhieu">Xóa nhiều</button>
+                <div>
+                    <label for="">Hien thi</label>
+                    <select name="" id="pageSize " ng-model="pageSize" convert-to-number ng-change="repaginate()">
+                         <option value="3">3</option>
+                         <option value="5">5</option>
+                         <option value="8">8</option>
+                    </select>
+                </div>
                 <table>
                   <thead>
                     <tr>
-                      <th>ID</th>
-                      <th>Tên sản phẩm</th>
-                      <th>Giá</th>
+                      <th ng-click="sortBy('maSanPham')">ID</th>
+                      <th ng-click="sortBy('tenSanPham')">Tên sản phẩm</th>
+                      <th ng-click="sortBy('gia')">Giá</th>
                       <th>Hình ảnh</th>
                       <th>Số lượng</th>
                       <th>Danh mục</th>
@@ -332,11 +351,11 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr ng-repeat="x in listSanPham" > 
+                    <tr ng-repeat="x in listSanPham  | orderBy : prop | limitTo : pageSize : begin"  > 
                          
-                      <td>{{x.maSanPham}}</td>
+                      <td>{{x.maSanPham }}</td>
                       <td >{{x.tenSanPham}}</td>
-                      <td>{{x.gia}}</td>
+                      <td>{{x.gia }}</td>
                       <td><img src="{{x.anhDaiDien}}" alt=""></td>
                       <td>{{x.soLuong}} </td>
                       <td>{{x.maChuyenMuc}} </td>
@@ -456,15 +475,14 @@
               <div class="footer">
                <div class="page-num">
                     <span class="span-page">
-                    <a ng-click="prevPage()" ng-show="page > 1" href="#"><button >Previous</button></a>
-                    <a ng-repeat="page in getPages()" ng-click="goToPage(page)" href=""><button >{{page}}</button></a>
-                    <a href=""><button>2</button></a>
-                    <a href=""><button>3</button></a>
-                    <a href="">...</a>
-                    <a href=""><button>10</button></a>
-                    <a  ng-click="nextPage()" ng-show="page < totalPages" href=""><button >Next</button></a>
+                        <a ng-click="first()" href="#"><button>First</button></a>
+                        <a ng-click="Previous()" href="#"><button>Previous</button></a>
+                       
+                        <a ng-click="next()" href="#"><button>Next</button></a>
+                        <a ng-click="last()" href="#"><button>Last</button></a>
                     </span>
-               </div>
+                </div>
+                
         </div>
         </div>
        
